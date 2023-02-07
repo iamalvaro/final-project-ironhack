@@ -1,26 +1,29 @@
 <template>
-<div class="container">
-    <h3>{{task.title}}</h3>
-    <button @click="deleteTask">Delete {{task.title}}</button>
-</div>
+  <div class="container">
+    <h3>{{ task.title }}</h3>
+    <button @click="deleteTask">Delete {{ task.title }}</button>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useTaskStore } from '../stores/task';
-import { supabase } from '../supabase';
+import { ref } from "vue";
+import { useTaskStore } from "../stores/task";
+import { supabase } from "../supabase";
 
 const taskStore = useTaskStore();
 
 const props = defineProps({
-    task: Object,
+  task: Object,
 });
 
 // Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
-const deleteTask = async() => {
-    await taskStore.deleteTask(props.task.id);
+const deleteTask = async () => {
+  await taskStore.deleteTask(props.task.id);
 };
-
+const errorMsg = ref("");
+const falseBool = ref(false);
+const editShow = ref(false);
+const editTask = ref("");
 </script>
 
 <style></style>
@@ -31,7 +34,7 @@ const deleteTask = async() => {
 like an object, up to you.
 
 2. Data properties need here are the following: a boolean to store a false**Important variable, a string to store an error,
-a string to store the value of the task that the user can edit, an initial false boolean to hide the inputFIeld used to edit
+a string to store the value of the task that the user can edit, an initial false boolean to hide the inputField used to edit
 the new task detail or details[this is in reference of the task title and the task description].
 
 3. Store the custom emit events that will be used to call the functions of the homeView for editing, deleting and toggling the

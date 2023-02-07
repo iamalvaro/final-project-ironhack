@@ -1,4 +1,4 @@
-/* :root {
+:root {
     --colorWhite: #ffffff;
     --colorBlack: #000000;
     --colorRed: red;
@@ -6,16 +6,87 @@
     --fontFamily: 'Arial, Helvetica, sans-serif';
     --fontTitle: 'Arial';
     --fontBody: 'Helvetica';
-} */
+}
 
-/* SignIn Component */
+* {
+    font-family: Montserrat;
 
-/* h1 {
-    color: var(--colorRed);
-} */
+}
+
+/* SignIn & SignUp Component */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600&family=Roboto:wght@100;300;400;700&display=swap");
+
+.sign-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e0e0e0;
+  width: 50%;
+  height: 90%;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  color: #303030;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  
+}
+.app-logo {
+  border-radius: 0;
+  width: 30%;
+  margin: 1rem 0 0.5rem 0;
+}
+.form-input {
+  margin: 1rem auto;
+}
+.form-input > input {
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  
+  
+}
+.sign-header {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: -3rem 0;
+    align-content: space-around;
+}
+.header-subtitle {
+    font-size: 1rem;
+    width: 80%;
+    margin: -0.5rem 0 1rem;
+}
+.form-input > button {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #303030;
+  color: #e0e0e0;
+}
+.form-input > button:hover {
+  background-color: #606060;
+  cursor: pointer;
+  /* color: #303030; */
+}
+.go-to-other-sign {
+  font-size: 0.8rem;
+}
 
 /* SignUp Component */
 
 /* Home view */
+
+/* NAV */
+.app-logo-nav {
+    border-radius: 0;
+    width: 4rem;
+    margin: 1rem 0 0.5rem 0;
+  
+  }
 
 /* Account View */

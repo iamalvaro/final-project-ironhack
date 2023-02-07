@@ -33,4 +33,5 @@ export const useTaskStore = defineStore("tasks", () => {
       id: id,
     });
   };
+  return  {fetchTasks, addTask, deleteTask}
 });

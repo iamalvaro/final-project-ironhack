@@ -1,27 +1,24 @@
 <template>
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
-    <router-link to="/">
-      Home
-    </router-link>
+    <img
+      src="../../public/completed-task.png"
+      alt="logo"
+      class="app-logo-nav"
+    />
+    <router-link to="/"> Home </router-link>
 
-    <ul>
-        <li>
-          <router-link to="/">Task Manager</router-link>
-        </li>
+    <router-link to="/">Task Manager</router-link>
 
-        <li>
-          <router-link to="/account">Your Account</router-link>
-        </li>
-    </ul>
+    <router-link to="/account">Your Account</router-link>
 
     <div>
       <ul>
         <li class="log-out-welcome">
-          <p>Welcome, user</p>
+          <p>Welcome, {{ userEmail }}</p>
         </li>
         <li>
-          <button @click="signOut" class="button">Log out</button>
+          <button @click="signOut" class="nav-button">Log out</button>
         </li>
       </ul>
     </div>
@@ -33,15 +30,17 @@
 import { useUserStore } from "../stores/user";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import { ref } from 'vue';
+import { ref } from "vue";
 
 //constant to save a variable that will hold the use router method
+
 const route = "/";
 const buttonText = "Todo app";
 
 // constant to save a variable that will get the user from store with a computed function imported from vue
 // const getUser = computed(() => useUserStore().user);
-const getUser = useUserStore().user;
+
+const getUser = computed(() => useUserStore().user);
 
 // constant that calls user email from the useUSerStore
 const userEmail = getUser.email;
@@ -50,25 +49,35 @@ const userEmail = getUser.email;
 const redirect = useRouter();
 
 const signOut = async () => {
-  try{
-    // call the user store and send the users info to backend to signOut
-    // then redirect user to the homeView
-  } catch (error) {}
+  try {
+    useUserStore().signOut;
+    redirect.push({ path: "/auth/login" });
+  } catch (error) {
+    await supabase.auth.signOut();
+    if (error) throw error;
+  }
 };
-
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600&family=Roboto:wght@100;300;400;700&display=swap");
 .navbar-img {
   width: 90px;
 }
 
 nav {
-  background-color: lightgray;
+  background-color: #303030;
   display: flex;
   width: 100%;
+  margin: -1rem -1rem;
   justify-content: space-around;
   align-items: center;
+  padding: 0 1rem;
+  color: #e0e0e0;
+}
+nav a {
+  text-decoration: none;
+  color: #e0e0e0;
 }
 
 nav ul {
@@ -77,5 +86,18 @@ nav ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.nav-button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 1.5rem;
+  border: none;
+  background-color: #dc143c;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.nav-button:hover {
+  background-color: #b61535;
 }
 </style>
