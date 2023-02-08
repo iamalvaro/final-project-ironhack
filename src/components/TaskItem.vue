@@ -1,32 +1,83 @@
 <template>
   <div class="container">
-    <h3>{{ task.title }}</h3>
+    <!-- Logic to change classes when to mark task as completed -->
+    <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
+      {{ task.title }}
+    </h3>
     <button @click="deleteTask">Delete {{ task.title }}</button>
+    <button @click="activateEdit">Edit {{ task.title }}</button>
+    <button @click="setTaskComplete">Completed</button>
+    <!-- EDIT INPUTS -->
+    <template v-if="editToggle">
+      <input type="text" v-model="taskTitle" placeholder="Edit title" />
+      <input type="text" v-model="taskContent" placeholder="Edit text" />
+      <button @click="submitEdit">Edit Task</button>
+    </template>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
-
+// to access task store
 const taskStore = useTaskStore();
 
+// variable to receive info from task through prop object
 const props = defineProps({
   task: Object,
 });
+
+// Emits to send info to the parent components
+const emit = defineEmits(["taskItemComplete", "editTask"]);
+
+//Edit task
+const editToggle = ref(false);
+const taskTitle = ref("");
+const taskContent = ref("");
+
+// function to toggle edit input fields
+const activateEdit = () => {
+  editToggle.value = !editToggle.value;
+  taskTitle.value = props.task.title;
+  taskContent.value = props.task.description;
+};
+//function to validate edit and send data to parent through emit
+const submitEdit = () => {
+  console.log("Click clack MF");
+  if (taskTitle.value.length === 0 || taskContent.value.length === 0) {
+    alert("Title or description cannot be empty");
+  } else {
+    const newTaskEdit = {
+      title: taskTitle.value,
+      description: taskContent.value,
+      id: props.task.id,
+    };
+    emit("editTask", newTaskEdit);
+    editToggle.value = false;
+  }
+};
+
+const setTaskComplete = () => {
+  emit("taskItemComplete", props.task);
+};
 
 // Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
 };
+
 const errorMsg = ref("");
-const falseBool = ref(false);
-const editShow = ref(false);
-const editTask = ref("");
 </script>
 
-<style></style>
+<style>
+.clase1 {
+}
+
+.completed-task {
+  text-decoration: line-through;
+}
+</style>
 
 <!--
 **Hints**

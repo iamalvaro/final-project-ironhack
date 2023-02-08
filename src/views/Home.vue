@@ -8,7 +8,13 @@
     </div>
     <NewTask />
     <h1>Tasks:</h1>
-    <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
+    <TaskItem
+      v-for="task in tasks"
+      :key="task.id"
+      :task="task"
+      @task-item-complete="completeTaskData"
+      @editTask="editTaskData"
+    />
   </div>
   <TaskFooter />
 </template>
@@ -36,6 +42,26 @@ getTasks();
 onUpdated(() => {
   getTasks();
 });
+
+//Connect to supabase to mark task as complete
+const completeTaskData = async (taskObject) => {
+  console.log("click");
+  // console.log(taskObject.id);
+  let changeTaskBool = !taskObject.is_complete;
+  let taskId = taskObject.id;
+  await taskStore.taskCompleted(taskId, changeTaskBool);
+};
+
+//Function to send edit task back to database
+const editTaskData = async (editTaskObject) => {
+  console.log("click");
+  console.log(editTaskObject);
+  await taskStore.editTask(
+    editTaskObject.id,
+    editTaskObject.title,
+    editTaskObject.description
+  );
+};
 </script>
 
 <style></style>

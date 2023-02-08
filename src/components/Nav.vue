@@ -11,7 +11,6 @@
     <router-link to="/">Task Manager</router-link>
 
     <router-link to="/account">Your Account</router-link>
-
     <div>
       <ul>
         <li class="log-out-welcome">
@@ -43,7 +42,18 @@ const buttonText = "Todo app";
 const getUser = computed(() => useUserStore().user);
 
 // constant that calls user email from the useUSerStore
-const userEmail = getUser.email;
+const userEmail = ref("");
+const getEmail = async () => {
+  await useUserStore().fetchUser();
+  userEmail.value = useUserStore().user.email;
+};
+getEmail();
+
+// async function getEmail() {
+//   await useUserStore().fetchUser();
+//   userEmail.value = useUserStore().user.email;
+// }
+// getEmail();
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 const redirect = useRouter();

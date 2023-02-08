@@ -96,43 +96,47 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Functioning Sing Up & Sign In
 - [x] Functioning Task CRUD
 - [x] Start styling login pages
+- [x] Start Navbar & Footer
 
 #### Day Two
 
 ###### Martes 24, Enero 2023
 
-- [x] Acabar Home page con estilos
-- [x] Project page html & css
-- [x] Contact form html & css
-- [x] Empezar scroller
-- [x] Navbar links
+- [x] Working edit task
+- [x] Working task completed button
+- [ ] Style home page & tasks
+- [ ]
+- [ ]
 
 #### Day Three
 
 ###### Miercoles 25, Enero 2023
 
-- [x] Hamburguesa menu
-- [x] Esconder scroller cuando no me hace falta
-- [x] About section
-- [x] api content
+- [ ] Profile Page
+- [ ] Try task completed
+- [ ] Style home page & tasks
+- [ ]
+- [ ]
 
 #### Day Four
 
 ###### Jueves 26, Enero 2023
 
-- [x] About acabar animaciones
-- [x] About json content
-- [x] Efecto skew
-- [ ] Splash animation
-- [x] Logos slide
+- [ ] Working edit task
+- [ ] Try task completed
+- [ ] Style home page & tasks
+- [ ]
+- [ ]
 
 #### Day Five
 
 ###### Viernes 27, Enero 2023
 
-- [ ] Acabar readme
-- [ ] Finish presentation
-- [ ] Toques finales
+- [ ] Working edit task
+- [ ] Try task completed
+- [ ] Style home page & tasks
+- [ ]
+- [ ]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

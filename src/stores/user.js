@@ -17,10 +17,11 @@ export const useUserStore = defineStore("user", {
         .select()
         .match({ user_id: this.user.id })
 
-        // if (profile) this.profile = profile[0];
-        // console.log('user in store: ', this.user);
-        // console.log('profile in store: ', this.profile);
+        if (profile) this.profile = profile[0];
+        console.log('user in store: ', this.user);
+        console.log('profile in store: ', this.profile);
       }
+      return user;
     },
 
     async signUp(email, password) {
@@ -58,8 +59,8 @@ export const useUserStore = defineStore("user", {
         .select()
         .match({ user_id: this.user.id })
 
-        // if (profile) this.profile = profile[0];
-        // console.log('profile in store: ', profile);
+        if (profile) this.profile = profile[0];
+        console.log('profile in store: ', profile);
       }
     },
 

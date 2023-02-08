@@ -16,7 +16,7 @@ const year = new Date().getFullYear();
   margin: 3rem -1rem -1rem;
   justify-content: space-around;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   color: #e0e0e0;
 }
 </style>
