@@ -112,11 +112,12 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 ###### Jueves 9, Febrero 2023
 
 - [ ] Profile Page
-- [ ] Style home page & tasks
-- [ ] Add functionality to icon buttons
-- [ ] Show task content when you click on title
+- [x] Style home page & tasks
+- [x] Add functionality to icon buttons
+- [x] Show task content when you click on title
 - [x] Change form input styles
 - [x] Refactor CSS & create CSS vars
+- [x] Start delete warning modal
 
 #### Day Four
 

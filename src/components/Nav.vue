@@ -1,11 +1,10 @@
 <template>
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
-    <img
-      src="../../public/completed-task.png"
-      alt="logo"
-      class="app-logo-nav"
-    />
+    <div id="navbar-logo">
+      <img src="../../public/checked.png" alt="logo" class="app-logo-nav" />
+      <h3>TaskPro</h3>
+    </div>
     <router-link to="/"> Home </router-link>
 
     <router-link to="/">Task Manager</router-link>
@@ -14,7 +13,7 @@
     <div>
       <ul>
         <li class="log-out-welcome">
-          <p>Welcome, {{ userEmail }}</p>
+          <p>{{ userEmail.substring(0, 15) + "..." }}</p>
         </li>
         <li>
           <button @click="signOut" class="nav-button">Log out</button>

@@ -1,6 +1,6 @@
 <template>
   <div class="sign-container">
-    <img src="../../public/completed-task.png" alt="logo" class="app-logo" />
+    <img src="../../public/checked.png" alt="logo" class="app-logo" />
     <div class="sign-header">
       <h3 class="header-title">Register to TaskPro-ProTask</h3>
       <p class="header-subtitle">Start organizing your tasks!</p>

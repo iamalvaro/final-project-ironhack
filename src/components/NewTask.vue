@@ -16,7 +16,7 @@
         <span>Details</span>
       </label>
     </div>
-    <button @click="addTask" class="create-button">Add</button>
+    <button @click="addTask" class="create-button">Add Task</button>
   </div>
 </template>
 

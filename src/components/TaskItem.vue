@@ -7,11 +7,13 @@
     "
   >
     <!-- Logic to change classes when to mark task as completed -->
-    <div class="task-heading">
+    <div class="task-heading" @click="showDetails">
       <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
         {{ task.title }}
       </h3>
-      <!-- <h5>{{ task.description }}</h5> -->
+      <template class="show-task-details" v-if="detailsToggle">
+        <p class="task-description">{{ task.description }}</p>
+      </template>
     </div>
     <div class="actions">
       <div @click="setTaskComplete" class="action-icon">
@@ -20,17 +22,28 @@
       <div @click="activateEdit" class="action-icon">
         <img src="../../public/edit.png" alt="edit task" />
       </div>
-      <div @click="deleteTask" class="action-icon">
+      <div @click="activateDelete" class="action-icon">
         <img src="../../public/cancel.png" alt="delete post" />
       </div>
     </div>
+    <!-- DELETE WARNING SCREEN -->
+    <template v-if="deleteToggle">
+      <DeleteWarning />
+    </template>
+
     <!-- <button @click="deleteTask">Delete {{ task.title }}</button>
     <button @click="activateEdit">Edit {{ task.title }}</button>
     <button @click="setTaskComplete">Completed</button> -->
     <!-- EDIT INPUTS -->
     <template class="edit-input" v-if="editToggle">
       <input type="text" v-model="taskTitle" placeholder="Edit title" />
-      <input type="text" v-model="taskContent" placeholder="Edit text" />
+      <textarea
+        class="edit-textarea"
+        v-model="taskContent"
+        cols="30"
+        rows="5"
+      ></textarea>
+      <!-- <input type="text" v-model="taskContent" placeholder="Edit text" /> -->
       <button @click="submitEdit">Edit Task</button>
     </template>
   </div>
@@ -40,6 +53,8 @@
 import { reactive, ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
+import DeleteWarning from "../components/DeleteWarning.vue";
+
 // to access task store
 const taskStore = useTaskStore();
 
@@ -50,6 +65,12 @@ const props = defineProps({
 
 // Emits to send info to the parent components
 const emit = defineEmits(["taskItemComplete", "editTask"]);
+
+//Show task details
+const detailsToggle = ref(false);
+const showDetails = () => {
+  detailsToggle.value = !detailsToggle.value;
+};
 
 //Edit task
 const editToggle = ref(false);
@@ -82,7 +103,11 @@ const setTaskComplete = () => {
   emit("taskItemComplete", props.task);
 };
 
-// Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
+//DELETE TASK ITEM
+const deleteToggle = ref(false);
+const activateDelete = () => {
+  deleteToggle.value = !deleteToggle.value;
+};
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
 };
@@ -97,7 +122,7 @@ const errorMsg = ref("");
   color: white; */
 }
 .task-background-completed {
-  background-color: rgb(82, 185, 82);
+  background-color: rgb(112, 234, 112);
   color: white;
 }
 </style>
