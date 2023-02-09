@@ -2,7 +2,7 @@
 
 <template>
   <div class="sign-container">
-    <img src="../../public/completed-task.png" alt="logo" class="app-logo" />
+    <img src="../../public/checked.png" alt="logo" class="app-logo" />
     <div class="sign-header">
       <h3 class="header-title">Log In to TaskAdmin Xtreme</h3>
       <p class="header-subtitle">Enter your details to access your tasks</p>
@@ -10,24 +10,28 @@
     <form @submit.prevent="signIn" class="form-sign-in">
       <div class="form">
         <div class="form-input">
-          <input
-            type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
+          <label>
+            <input
+              type="email"
+              class="input-field"
+              id="email"
+              v-model="email"
+              required
+            />
+            <span>Email</span>
+          </label>
         </div>
         <div class="form-input">
-          <input
-            type="password"
-            class="input-field"
-            placeholder="Enter your password"
-            id="password"
-            v-model="password"
-            required
-          />
+          <label>
+            <input
+              type="password"
+              class="input-field"
+              id="password"
+              v-model="password"
+              required
+            />
+            <span>Password</span>
+          </label>
         </div>
         <div class="form-input">
           <button class="button" type="submit">Sign In</button>

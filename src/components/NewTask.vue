@@ -1,24 +1,22 @@
 <template>
-  <h1>Add a new Task</h1>
+  <h1>Create a Task</h1>
   <div v-if="showErrorMessage">
     <p class="error-text">{{ errorMessage }}</p>
   </div>
-  <div>
+  <div class="create-task">
     <div class="input-field">
-      <input
-        type="text"
-        placeholder="Add a Task Title - Listen to Kendrick Lamar"
-        v-model="name"
-      />
+      <label>
+        <input type="text" v-model="name" required />
+        <span>Title</span>
+      </label>
     </div>
     <div class="input-field">
-      <input
-        type="text"
-        placeholder="Add a Task Description - Look up Kendrick Lamar's FEAR album on spotify and listen to the whole album."
-        v-model="description"
-      />
+      <label>
+        <textarea cols="30" rows="5" v-model="description" required></textarea>
+        <span>Details</span>
+      </label>
     </div>
-    <button @click="addTask" class="button">Add</button>
+    <button @click="addTask" class="create-button">Add</button>
   </div>
 </template>
 
@@ -44,7 +42,7 @@ const addTask = () => {
     // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al user.
 
     showErrorMessage.value = true;
-    errorMessage.value = "The task title or description is empty";
+    errorMessage.value = "The task title or details are empty";
     setTimeout(() => {
       showErrorMessage.value = false;
     }, 5000);

@@ -100,41 +100,41 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 #### Day Two
 
-###### Martes 24, Enero 2023
+###### Miercoles 8, Febrero 2023
 
 - [x] Working edit task
 - [x] Working task completed button
-- [ ] Style home page & tasks
-- [ ]
-- [ ]
+- [x] Style home page & tasks
+- [x] Change task button for icons
 
 #### Day Three
 
-###### Miercoles 25, Enero 2023
+###### Jueves 9, Febrero 2023
 
 - [ ] Profile Page
-- [ ] Try task completed
 - [ ] Style home page & tasks
-- [ ]
-- [ ]
+- [ ] Add functionality to icon buttons
+- [ ] Show task content when you click on title
+- [x] Change form input styles
+- [x] Refactor CSS & create CSS vars
 
 #### Day Four
 
-###### Jueves 26, Enero 2023
+###### Viernes 10, Febrero 2023
 
-- [ ] Working edit task
-- [ ] Try task completed
-- [ ] Style home page & tasks
+- [ ] Fix nav bar
+- [ ] Create dropdown menu for nav
+- [ ]
 - [ ]
 - [ ]
 
 #### Day Five
 
-###### Viernes 27, Enero 2023
+###### Sabado 11, Febrero 2023
 
-- [ ] Working edit task
-- [ ] Try task completed
-- [ ] Style home page & tasks
+- [ ] Create new edit icon button
+- [ ] Create arrow up botton
+- [ ] Create scroll up feature
 - [ ]
 - [ ]
 

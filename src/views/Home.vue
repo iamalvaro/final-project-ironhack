@@ -1,20 +1,20 @@
 <template>
   <div class="wrapper">
     <Nav />
-
-    <div class="content">
-      <h3>Your account:</h3>
-      <router-link to="/account">Account</router-link>
+    <div class="add-task-wrapper">
+      <!-- <h3>Your account:</h3>
+      <router-link to="/account">Account</router-link> -->
+      <NewTask />
     </div>
-    <NewTask />
-    <h1>Tasks:</h1>
-    <TaskItem
-      v-for="task in tasks"
-      :key="task.id"
-      :task="task"
-      @task-item-complete="completeTaskData"
-      @editTask="editTaskData"
-    />
+    <div class="task-wrapper">
+      <TaskItem
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+        @task-item-complete="completeTaskData"
+        @editTask="editTaskData"
+      />
+    </div>
   </div>
   <TaskFooter />
 </template>

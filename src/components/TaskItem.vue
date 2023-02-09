@@ -1,14 +1,34 @@
 <template>
-  <div class="container">
+  <div
+    :class="
+      props.task.is_complete
+        ? 'task-container task-background-completed'
+        : 'task-container task-background-default'
+    "
+  >
     <!-- Logic to change classes when to mark task as completed -->
-    <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
-      {{ task.title }}
-    </h3>
-    <button @click="deleteTask">Delete {{ task.title }}</button>
+    <div class="task-heading">
+      <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
+        {{ task.title }}
+      </h3>
+      <!-- <h5>{{ task.description }}</h5> -->
+    </div>
+    <div class="actions">
+      <div @click="setTaskComplete" class="action-icon">
+        <img src="../../public/checked.png" alt="task completed" />
+      </div>
+      <div @click="activateEdit" class="action-icon">
+        <img src="../../public/edit.png" alt="edit task" />
+      </div>
+      <div @click="deleteTask" class="action-icon">
+        <img src="../../public/cancel.png" alt="delete post" />
+      </div>
+    </div>
+    <!-- <button @click="deleteTask">Delete {{ task.title }}</button>
     <button @click="activateEdit">Edit {{ task.title }}</button>
-    <button @click="setTaskComplete">Completed</button>
+    <button @click="setTaskComplete">Completed</button> -->
     <!-- EDIT INPUTS -->
-    <template v-if="editToggle">
+    <template class="edit-input" v-if="editToggle">
       <input type="text" v-model="taskTitle" placeholder="Edit title" />
       <input type="text" v-model="taskContent" placeholder="Edit text" />
       <button @click="submitEdit">Edit Task</button>
@@ -71,11 +91,14 @@ const errorMsg = ref("");
 </script>
 
 <style>
-.clase1 {
-}
-
 .completed-task {
   text-decoration: line-through;
+  /* background-color: green;
+  color: white; */
+}
+.task-background-completed {
+  background-color: rgb(82, 185, 82);
+  color: white;
 }
 </style>
 

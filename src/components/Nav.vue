@@ -71,43 +71,4 @@ const signOut = async () => {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600&family=Roboto:wght@100;300;400;700&display=swap");
-.navbar-img {
-  width: 90px;
-}
-
-nav {
-  background-color: #303030;
-  display: flex;
-  width: 100%;
-  margin: -1rem -1rem;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 1rem;
-  color: #e0e0e0;
-}
-nav a {
-  text-decoration: none;
-  color: #e0e0e0;
-}
-
-nav ul {
-  list-style: none;
-  padding-inline-start: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.nav-button {
-  width: 100%;
-  padding: 0.8rem;
-  border-radius: 1.5rem;
-  border: none;
-  background-color: #dc143c;
-  color: #e0e0e0;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.nav-button:hover {
-  background-color: #b61535;
-}
 </style>
