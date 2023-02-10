@@ -7,13 +7,33 @@
       </div>
       <div class="warning-button">
         <button @click="deleteTask">Yes</button>
-        <button @click="deleteTask.value = false">No</button>
+        <button @click="closeModalDeleteTask">No</button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { boolean } from "webidl-conversions";
+import { useTaskStore } from "../stores/task";
+
+// to access task store
+const taskStore = useTaskStore();
+
+//Function to delete task from modal
+const deleteTask = () => {
+  emit("emitDeleteTask", "emitCloseModal");
+};
+
+let falseValue = ref(false);
+
+const closeModalDeleteTask = () => {
+  emit("emitCloseModal", falseValue.value);
+};
+
+const emit = defineEmits(["emitDeleteTask"]);
+</script>
 
 <style scoped>
 .modal {

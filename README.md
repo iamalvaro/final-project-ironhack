@@ -125,9 +125,11 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 - [ ] Fix nav bar
 - [ ] Create dropdown menu for nav
-- [ ]
-- [ ]
-- [ ]
+- [ ] Fix issue with task descriptions
+- [ ] Profile
+- [x] Arrow for task description
+- [ ] Fix footer
+- [ ] Scroll up arrow
 
 #### Day Five
 

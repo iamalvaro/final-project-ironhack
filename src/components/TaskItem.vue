@@ -7,12 +7,18 @@
     "
   >
     <!-- Logic to change classes when to mark task as completed -->
-    <div class="task-heading" @click="showDetails">
-      <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
-        {{ task.title }}
-      </h3>
+    <div class="task-heading-container" @click="showDetails">
+      <div class="task-heading">
+        <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
+          {{ task.title }}
+        </h3>
+        <i v-if="detailsToggle" class="fa-solid fa-caret-up"></i>
+        <i v-else class="fa-solid fa-caret-down"></i>
+      </div>
       <template class="show-task-details" v-if="detailsToggle">
-        <p class="task-description">{{ task.description }}</p>
+        <div class="task-description-container">
+          <p class="task-description">{{ task.description }}</p>
+        </div>
       </template>
     </div>
     <div class="actions">
@@ -28,22 +34,23 @@
     </div>
     <!-- DELETE WARNING SCREEN -->
     <template v-if="deleteToggle">
-      <DeleteWarning />
+      <DeleteWarning
+        @emit-delete-task="deleteTaskTest"
+        @emit-close-modal="closeModalParent"
+        :boolean-prop="deleteToggle"
+      />
     </template>
-
-    <!-- <button @click="deleteTask">Delete {{ task.title }}</button>
-    <button @click="activateEdit">Edit {{ task.title }}</button>
-    <button @click="setTaskComplete">Completed</button> -->
     <!-- EDIT INPUTS -->
     <template class="edit-input" v-if="editToggle">
       <input type="text" v-model="taskTitle" placeholder="Edit title" />
-      <textarea
-        class="edit-textarea"
-        v-model="taskContent"
-        cols="30"
-        rows="5"
-      ></textarea>
-      <!-- <input type="text" v-model="taskContent" placeholder="Edit text" /> -->
+      <div class="scrollbar-container">
+        <textarea
+          class="edit-textarea"
+          v-model="taskContent"
+          cols="30"
+          rows="5"
+        ></textarea>
+      </div>
       <button @click="submitEdit">Edit Task</button>
     </template>
   </div>
@@ -54,6 +61,7 @@ import { reactive, ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
 import DeleteWarning from "../components/DeleteWarning.vue";
+import { BeakerIcon } from "@heroicons/vue/24/solid";
 
 // to access task store
 const taskStore = useTaskStore();
@@ -65,6 +73,9 @@ const props = defineProps({
 
 // Emits to send info to the parent components
 const emit = defineEmits(["taskItemComplete", "editTask"]);
+
+//Short title for display purposes
+// ---FUTURE PLANS---
 
 //Show task details
 const detailsToggle = ref(false);
@@ -110,6 +121,17 @@ const activateDelete = () => {
 };
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
+};
+
+const deleteTaskTest = async () => {
+  await taskStore.deleteTask(props.task.id);
+  deleteToggle.value = !deleteToggle.value;
+};
+
+// CLOSE MODAL FROM DELETWARNING EMITTED EVENT WITH INFO STORING A FALSE VALUE TO PASS ON TO THE deleteToggle variable.
+const closeModalParent = (valueFromChildEvent) => {
+  deleteToggle.value = valueFromChildEvent;
+  // alert(valueFromChildEvent);
 };
 
 const errorMsg = ref("");

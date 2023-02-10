@@ -34,6 +34,7 @@
           </label>
         </div>
         <div class="form-input">
+          <div class="error-text" v-show="errorMsg">{{ errorMsg }}</div>
           <button class="button" type="submit">Sign In</button>
         </div>
       </div>
@@ -48,7 +49,6 @@
         />
       </p>
     </div>
-    <div v-show="errorMsg">{{ errorMsg }}</div>
   </div>
 </template>
 

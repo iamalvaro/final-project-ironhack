@@ -49,6 +49,7 @@ textarea {
   border: 2px solid var(--colorLightGrey);
   font-size: 1rem; 
   margin: 0.5rem auto;
+  resize: none;
   background-color: var(--colorBrokenWhite);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -141,6 +142,11 @@ button {
   cursor: pointer;
 }
 
+.error-text {
+  color: var(--colorRed);
+  margin: -0.5rem 0 0.5rem 0;
+}
+
 /* SignIn & SignUp Component */
 .sign-container {
   display: flex;
@@ -155,9 +161,7 @@ button {
   border-radius: 1rem;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  
 }
-.task-description {
-  width: 30vw;
-}
+
 .app-logo {
   border-radius: 0;
   width: 30%;
@@ -179,20 +183,7 @@ button {
     width: 80%;
     margin: -0.5rem 0 1rem;
 }
- /* button {
-  width: 100%;
-  border-radius: 2.5rem;
-  padding: 0.65rem;
-  font-size: 1rem;
-  border: 2px solid #aaa9a9;
-  background-color: #fff;
-  color: #aaa9a9;  
-}
- button:hover {
-  border: 2px solid #32ba7c;
-  color: #32ba7c;
-  cursor: pointer;
-} */
+
 .go-to-other-sign {
   font-size: 0.8rem;
 }
@@ -204,11 +195,7 @@ button {
   align-items: center;
   margin: 2rem auto 0;  
   padding: 2rem;
-  /* background-color: #e0e0e0;
-  width: 50%;
-  height: 90%;
-  border-radius: 1rem;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+ 
 }
 
 .task-wrapper {
@@ -216,6 +203,7 @@ button {
   display: flex;  
   flex-wrap: wrap;
   gap: 1;
+  
 }
 
 /* NEW TASK */
@@ -229,53 +217,10 @@ button {
   color: var(--colorRed);
 }
 
-.create-task input {
-  /* padding: 0.5rem 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  font-size: 1rem; 
-  margin: 0.5rem auto; 
-  width: 100%; */
-}
-
-/* textarea {
-  width: 96.5%;
-  padding: 0.5rem 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  font-size: 1rem; 
-  margin: 0.5rem auto;
-} */
-
-.create-task input:focus{
-  /* outline: none !important;
-  border: 3px solid #48c8ef; 
-  box-shadow: 0 0 10px #303030; */
-}
-.create-task textarea:focus{
-  /* outline: none !important;
-  border: 3px solid #48c8ef; 
-  box-shadow: 0 0 10px #303030; */
-}
-.create-task > button {
-  /* width: 100%;
-  padding: 1rem 0.5rem;
-  border-radius: 2rem;
-  font-size: 1.2rem;
-  border: none;
-  background-color: #303030;
-  color: #e0e0e0;
-  margin: 1rem auto; */
-}
-.create-task > button:hover {
-/*   
-  background-color: #606060;
-  cursor: pointer; */
-}
 
 /* Tasks */
-.task-items-container {
-  margin: 0 5rem;
+.task-wrapper {
+  margin: 0 1rem;
 }
 .task-background-default {
   background-color: var(--colorBrokenWhite);
@@ -285,33 +230,62 @@ button {
   flex-direction: column;
   align-items: center;  
   width: 15rem;
-  height: 90%;
+  height: 100%;
   padding: 1.5rem;
   margin: 1rem auto;
+  gap: 1;
   text-align: center;
   border-radius: 1rem;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  overflow-wrap: break-word;
+  min-width: 0;
+   
+}
+.task-heading-container {
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
 }
 .task-heading {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
   cursor: pointer;
+  font-size: 1.3rem;
+  margin: 0 0 -1rem 0;
+  user-select: none;
+  /* width: 50%; */
+
 }
-.task-heading > h3:hover {
-  text-shadow: white 0 2px;
-  font-size: 1.2rem;
+
+.task-heading:hover {
+  font-size: 1.35rem;
 }
+
+.task-heading > i {
+  /* width: 1.3rem; */
+  margin: 1.7rem 0 0 0.3rem;
+ 
+}
+.task-description-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  text-align: center;  
+  overflow-wrap: break-word;
+  min-width: 0;
+  /* user-select: none; */
+
+  }
+.task-description {
+  /* width: 40%; */
+
+}
+
 .task-container input {
   padding: 1.2rem 0.5rem;
   border-radius: 2.5rem;
   margin: 0.5rem;
-  border: 2px solid var(--colorLightGrey);
-  font-size: 1rem;  
-  color: var(--colorDarkGrey);
-}
-.task-container > input:focus {
-  border-color: var(--colorgreen); 
-  /* outline: none !important;
-  border: 3px solid #48c8ef; 
-  box-shadow: 0 0 10px #303030; */
 }
 .actions {
   display: flex;
@@ -334,21 +308,15 @@ button {
 .edit-textarea {
   margin: 0.5rem 0 1rem 0;
 }
-.task-container > button {
+
+/* SCROLL-BAR */
+
+::-webkit-scrollbar {
+  width: 0;
+  /* overflow: hidden;  */
   
-  /* width: 100%;
-  padding: 0.5rem;
-  margin: 1em;
-  border-radius: 1rem;
-  border: none;
-  background-color: #303030;
-  color: var(--colorBrokenWhite); */
 }
-.task-container > button:hover {
-  /* background-color: #606060;
-  cursor: pointer;
-  color: #303030; */
-}
+
 /* NAV */
 #navbar-logo {
   display: flex;
