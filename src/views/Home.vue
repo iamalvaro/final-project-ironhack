@@ -15,8 +15,8 @@
         @editTask="editTaskData"
       />
     </div>
+    <TaskFooter />
   </div>
-  <TaskFooter />
 </template>
 
 <script setup>

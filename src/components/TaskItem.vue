@@ -10,7 +10,7 @@
     <div class="task-heading-container" @click="showDetails">
       <div class="task-heading">
         <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
-          {{ task.title }}
+          {{ shortTitle }}
         </h3>
         <i v-if="detailsToggle" class="fa-solid fa-caret-up"></i>
         <i v-else class="fa-solid fa-caret-down"></i>
@@ -76,6 +76,9 @@ const emit = defineEmits(["taskItemComplete", "editTask"]);
 
 //Short title for display purposes
 // ---FUTURE PLANS---
+const shortTitle = ref(props.task.title.substring(0, 8) + "...");
+// userEmail.value = useUserStore().user.email;
+// {{ userEmail.substring(0, 15) + "..." }}
 
 //Show task details
 const detailsToggle = ref(false);

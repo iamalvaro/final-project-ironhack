@@ -125,11 +125,13 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 - [ ] Fix nav bar
 - [ ] Create dropdown menu for nav
-- [ ] Fix issue with task descriptions
+- [x] Fix issue with task descriptions
 - [ ] Profile
 - [x] Arrow for task description
-- [ ] Fix footer
+- [x] Fix footer
+- [x] Shorten up long titles
 - [ ] Scroll up arrow
+- [x] Fix text crop in input span animation
 
 #### Day Five
 
@@ -138,7 +140,7 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [ ] Create new edit icon button
 - [ ] Create arrow up botton
 - [ ] Create scroll up feature
-- [ ]
+- [ ] Logic for short title only when needed
 - [ ]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
