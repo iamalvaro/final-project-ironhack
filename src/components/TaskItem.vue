@@ -61,7 +61,6 @@ import { reactive, ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
 import DeleteWarning from "../components/DeleteWarning.vue";
-import { BeakerIcon } from "@heroicons/vue/24/solid";
 
 // to access task store
 const taskStore = useTaskStore();
