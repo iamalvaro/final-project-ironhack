@@ -248,8 +248,7 @@ button {
 }
 .task-heading-container {
   display: flex;
-  flex-direction: column;
- 
+  flex-direction: column; 
   align-items: center;
 }
 .task-heading {
@@ -268,26 +267,29 @@ button {
 .task-heading:hover {
   font-size: 1.35rem;
 }
-
+/* Arrow-caret icon */
 .task-heading > i {
   /* width: 1.3rem; */
-  margin: 1.7rem 0 0 0.3rem;
+  margin: 1.7rem 0 0 0;
  
 }
 .task-description-container {
   width: 100%;
   display: grid;
-  grid-template-columns: 15rem minmax(0, 1fr);
-  text-align: center;  
+  grid-template-columns: 15rem minmax(0, 1fr);  
   overflow-wrap: break-word;
   min-width: 0;
   /* user-select: none; */
 
   }
-/* .task-description {
-  width: 40%;
+.task-description {
+  margin: 1em 0 1em 1.5rem;
+  text-align: left;  
 
-} */
+}
+.short-text {
+  text-align: center;
+}
 
 .task-container input {
   padding: 1.2rem 0.5rem;
@@ -389,4 +391,60 @@ button {
   }
 /* Account View */
 
+.account-container {
+  margin: 2rem 0 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+.account-container-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;  
+  
+}
+.account-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr); 
+  /* row-gap: 0; */
+  /* column-gap: -5rem; */
+  /* margin: 0 -2rem 0 -2rem; */
+  
+  
+}
 
+.profile-img {
+  width: 15rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.edit-profil-btn {
+  width: 60%;
+  margin: 1rem 0 2rem 0;
+}
+
+.edit-profile-form {
+  width: 60%; 
+  
+}
+.edit-profile-form > button {
+  margin: 1rem 0 0 0;
+}
+.profile-details {
+  font-weight: 300;
+}
+.profile-details-heading {
+  /* margin: 0 0 0 0; */
+  /* padding: 0 -3rem 0 0; */
+}
+
+/* Media querys poner container-row en column  */
+@media (max-width: 766px) {
+  .account-container-row {
+    flex-direction: column;     
+  }
+  .edit-profile-form, .edit-profil-btn  {
+    width: 80%;
+  }
+}

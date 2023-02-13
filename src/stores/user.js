@@ -64,6 +64,31 @@ export const useUserStore = defineStore("user", {
       }
     },
 
+    async editProfile(newUsername, newName, newNickname, newWebsite, newAvatar) {
+      if (newUsername === null){
+        newUsername = this.profile.username;
+      }
+      if (newName === null){
+        newName = this.profile.name;
+      }
+      if (newNickname === null){
+        newNickname = this.profile.nick_name;
+      }
+      if (newName === null){
+        newWebsite = this.profile.website;
+      }
+      const {data, error} = await supabase
+      .from('profiles')
+      .update({
+        username: newUsername,
+        name: newName,
+        nick_name: newNickname,
+        website: newWebsite,
+        image_src: newAvatar,
+      })
+      .match({id: this.profile.id})
+    },
+
     async signOut(){
       const { error } = await supabase.auth.signOut();
       if (error) throw error;

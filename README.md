@@ -135,13 +135,30 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 #### Day Five
 
-###### Sabado 11, Febrero 2023
+###### Sunday 12, Febrero 2023
 
-- [ ] Create new edit icon button
-- [ ] Create arrow up botton
+- [ ] Fix nav bar
+- [x] Create dropdown menu for nav
+
+#### Day Six
+
+###### Monday 13, Febrero 2023
+
+- [x] Logic for short title only when needed
+- [x] Profile Page
+- [ ] Fix nav bar
+- [x] Fix text align of task description
+- [x] Change favicon
+
+#### Day Seven
+
+###### Tuesday 14, Febrero 2023
+
 - [ ] Create scroll up feature
-- [ ] Logic for short title only when needed
-- [ ]
+- [ ] Change action buttons img for icons
+- [ ] Finish Profile Page functionality
+- [ ] Finish styling modal
+- [ ] Fix nav bar
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

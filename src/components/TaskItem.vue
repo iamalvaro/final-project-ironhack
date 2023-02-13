@@ -17,7 +17,13 @@
       </div>
       <template class="show-task-details" v-if="detailsToggle">
         <div class="task-description-container">
-          <p class="task-description">{{ task.description }}</p>
+          <p
+            :class="
+              task.description.length > 25 ? 'task-description' : 'short-text'
+            "
+          >
+            {{ task.description }}
+          </p>
         </div>
       </template>
     </div>
@@ -74,8 +80,24 @@ const props = defineProps({
 const emit = defineEmits(["taskItemComplete", "editTask"]);
 
 //Short title for display purposes
-// ---FUTURE PLANS---
-const shortTitle = ref(props.task.title.substring(0, 8) + "...");
+
+// const taskTitleModifier = () => {
+//   if (detailsToggle === true) {
+//     return props.task.title;
+//   }
+//   if (props.task.title.length > 8) {
+//     return props.task.title.substring(0, 8) + "...";
+//   } else {
+//     props.task.title;
+//   }
+// };
+
+const shortTitle = ref(
+  props.task.title.length > 8
+    ? props.task.title.substring(0, 8) + "..."
+    : props.task.title
+);
+
 // userEmail.value = useUserStore().user.email;
 // {{ userEmail.substring(0, 15) + "..." }}
 

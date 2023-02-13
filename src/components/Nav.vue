@@ -13,7 +13,7 @@
     <div>
       <ul>
         <li class="log-out-welcome">
-          <p>{{ userEmail.substring(0, 15) + "..." }}</p>
+          <p>{{ userEmail.split("@")[0] }}</p>
         </li>
         <li>
           <button @click="signOut" class="nav-button">Log out</button>
@@ -30,6 +30,8 @@ import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
+const userStore = useUserStore();
+
 //constant to save a variable that will hold the use router method
 
 const route = "/";
@@ -38,21 +40,21 @@ const buttonText = "Todo app";
 // constant to save a variable that will get the user from store with a computed function imported from vue
 // const getUser = computed(() => useUserStore().user);
 
-const getUser = computed(() => useUserStore().user);
+// const getUser = computed(() => useUserStore().user);
 
+const username = ref("");
+
+const getUsername = async () => {
+  await userStore.fetchUser();
+  username.value = userStore.profile.username;
+};
 // constant that calls user email from the useUSerStore
 const userEmail = ref("");
 const getEmail = async () => {
-  await useUserStore().fetchUser();
-  userEmail.value = useUserStore().user.email;
+  await userStore.fetchUser();
+  userEmail.value = userStore.user.email;
 };
 getEmail();
-
-// async function getEmail() {
-//   await useUserStore().fetchUser();
-//   userEmail.value = useUserStore().user.email;
-// }
-// getEmail();
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 const redirect = useRouter();
