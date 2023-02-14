@@ -111,7 +111,6 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Jueves 9, Febrero 2023
 
-- [ ] Profile Page
 - [x] Style home page & tasks
 - [x] Add functionality to icon buttons
 - [x] Show task content when you click on title
@@ -126,7 +125,6 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [ ] Fix nav bar
 - [ ] Create dropdown menu for nav
 - [x] Fix issue with task descriptions
-- [ ] Profile
 - [x] Arrow for task description
 - [x] Fix footer
 - [x] Shorten up long titles
@@ -154,11 +152,17 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Tuesday 14, Febrero 2023
 
+- [x] Scrolling bloqued when modal is active
+- [x] Finish styling modal
+- [x] Make dropdown menu its own component
 - [ ] Create scroll up feature
 - [ ] Change action buttons img for icons
 - [ ] Finish Profile Page functionality
-- [ ] Finish styling modal
 - [ ] Fix nav bar
+
+#### Day Eight
+
+###### Wednesday 15, Febrero 2023
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

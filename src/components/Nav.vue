@@ -5,12 +5,12 @@
       <img src="../../public/checked.png" alt="logo" class="app-logo-nav" />
       <h3>TaskPro</h3>
     </div>
-    <router-link to="/"> Home </router-link>
+    <!-- <router-link to="/"> Home </router-link>
 
     <router-link to="/">Task Manager</router-link>
 
-    <router-link to="/account">Your Account</router-link>
-    <div>
+    <router-link to="/account">Your Account</router-link> -->
+    <!-- <div>
       <ul>
         <li class="log-out-welcome">
           <p>{{ userEmail.split("@")[0] }}</p>
@@ -19,7 +19,8 @@
           <button @click="signOut" class="nav-button">Log out</button>
         </li>
       </ul>
-    </div>
+    </div> -->
+    <DropMenu />
   </nav>
 </template>
 
@@ -29,6 +30,7 @@ import { useUserStore } from "../stores/user";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+import DropMenu from "./DropMenu.vue";
 
 const userStore = useUserStore();
 

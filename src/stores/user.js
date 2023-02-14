@@ -64,15 +64,12 @@ export const useUserStore = defineStore("user", {
       }
     },
 
-    async editProfile(newUsername, newName, newNickname, newWebsite, newAvatar) {
+    async editProfile(newUsername, newName, newWebsite, newAvatar) {
       if (newUsername === null){
         newUsername = this.profile.username;
       }
       if (newName === null){
         newName = this.profile.name;
-      }
-      if (newNickname === null){
-        newNickname = this.profile.nick_name;
       }
       if (newName === null){
         newWebsite = this.profile.website;
@@ -81,8 +78,7 @@ export const useUserStore = defineStore("user", {
       .from('profiles')
       .update({
         username: newUsername,
-        name: newName,
-        nick_name: newNickname,
+        name: newName,       
         website: newWebsite,
         image_src: newAvatar,
       })

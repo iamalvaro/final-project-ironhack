@@ -10,7 +10,7 @@
     <div class="task-heading-container" @click="showDetails">
       <div class="task-heading">
         <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
-          {{ shortTitle }}
+          {{ taskTitleModifier() }}
         </h3>
         <i v-if="detailsToggle" class="fa-solid fa-caret-up"></i>
         <i v-else class="fa-solid fa-caret-down"></i>
@@ -44,6 +44,9 @@
         @emit-delete-task="deleteTaskTest"
         @emit-close-modal="closeModalParent"
         :boolean-prop="deleteToggle"
+        @wheel.prevent
+        @touchmove.prevent
+        @scroll.prevent
       />
     </template>
     <!-- EDIT INPUTS -->
@@ -81,22 +84,22 @@ const emit = defineEmits(["taskItemComplete", "editTask"]);
 
 //Short title for display purposes
 
-// const taskTitleModifier = () => {
-//   if (detailsToggle === true) {
-//     return props.task.title;
-//   }
-//   if (props.task.title.length > 8) {
-//     return props.task.title.substring(0, 8) + "...";
-//   } else {
-//     props.task.title;
-//   }
-// };
+const taskTitleModifier = () => {
+  if (detailsToggle.value === true) {
+    return props.task.title;
+  }
+  if (props.task.title.length > 8) {
+    return props.task.title.substring(0, 8) + "...";
+  } else {
+    return props.task.title;
+  }
+};
 
-const shortTitle = ref(
-  props.task.title.length > 8
-    ? props.task.title.substring(0, 8) + "..."
-    : props.task.title
-);
+// const shortTitle = ref(
+//   props.task.title.length > 8
+//     ? props.task.title.substring(0, 8) + "..."
+//     : props.task.title
+// );
 
 // userEmail.value = useUserStore().user.email;
 // {{ userEmail.substring(0, 15) + "..." }}

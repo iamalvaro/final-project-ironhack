@@ -20,8 +20,6 @@
         <h3 class="profile-details">
           {{ username ? username.split("@")[0] : username }}
         </h3>
-        <h3 class="profile-details-heading">Nickname:</h3>
-        <h3 class="profile-details"></h3>
         <h3 class="profile-details-heading">Email:</h3>
         <h3 class="profile-details">{{ userEmail }}</h3>
         <h3 class="profile-details-heading">Website:</h3>
@@ -41,14 +39,6 @@
           <input v-model="newName" type="text" required />
           <span>Name</span>
         </label>
-        <label>
-          <input v-model="newNickname" type="text" required />
-          <span>Nickname</span>
-        </label>
-        <!-- <label>
-          <input v-model="newEmail" type="text" required />
-          <span>Email</span>
-        </label> -->
         <label>
           <input v-model="newWebsite" type="text" required />
           <span>Website</span>
@@ -84,12 +74,11 @@ const website = ref(null);
 const avatar_url = ref(null);
 const userEmail = ref("");
 const name = ref(null);
-const nick_name = ref(null);
 
 //VALUES FROM INPUTS
 const newUsername = ref(null);
 const newName = ref(null);
-const newNickname = ref(null);
+
 // const newEmail = ref(null);
 const newWebsite = ref(null);
 const newAvatar = ref(null);
@@ -104,7 +93,6 @@ async function getProfile() {
   avatar_url.value = userStore.profile.avatar_url;
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
-  nick_name.value = userStore.profile.nick_name;
 }
 
 //FETCH EMAIL
@@ -150,7 +138,6 @@ const submitProfileChanges = async () => {
   await userStore.editProfile(
     newUsername.value,
     newName.value,
-    newNickname.value,
     newWebsite.value,
     newAvatar.value
   );

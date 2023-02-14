@@ -6,8 +6,8 @@
         <p>Are you sure you want to delete this task?</p>
       </div>
       <div class="warning-button">
-        <button @click="deleteTask">Yes</button>
-        <button @click="closeModalDeleteTask">No</button>
+        <button class="red-btn" @click="deleteTask">Yes</button>
+        <button class="green-btn" @click="closeModalDeleteTask">No</button>
       </div>
     </div>
   </div>
@@ -47,14 +47,33 @@ const emit = defineEmits(["emitDeleteTask"]);
   display: flex;
   align-items: center;
 }
-
+.alert-box {
+  margin: 2rem 0 1.5rem 0;
+}
 .warning-button {
   display: flex;
   gap: 2rem;
+  margin: 1rem 0 0 0;
 }
 .warning-button > * {
-  /* padding: 0.5rem 2rem; */
   width: 4.5rem;
+}
+.red-btn {
+  padding: 1rem;
+  border: 2px solid var(--colorRed);
+  color: var(--colorRed);
+}
+.red-btn:hover {
+  background-color: var(--colorRed);
+  color: var(--colorBrokenWhite);
+}
+.green-btn {
+  border: 2px solid var(--colorGreen);
+  color: var(--colorGreen);
+}
+.green-btn:hover {
+  background-color: var(--colorGreen);
+  color: var(--colorBrokenWhite);
 }
 
 .warning-container {
