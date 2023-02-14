@@ -155,10 +155,11 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Scrolling bloqued when modal is active
 - [x] Finish styling modal
 - [x] Make dropdown menu its own component
+- [x] Start dealine feature
 - [ ] Create scroll up feature
 - [ ] Change action buttons img for icons
 - [ ] Finish Profile Page functionality
-- [ ] Fix nav bar
+- [x] Fix nav bar
 
 #### Day Eight
 

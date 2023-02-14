@@ -11,11 +11,12 @@
           "
           alt="Profile picture"
         />
-        <p>{{ userEmail.split("@")[0] }}</p>
+        <p class="nav-account-name">{{ userEmail.split("@")[0] }}</p>
       </div>
       <div class="dropdown-items">
         <router-link to="/"> Home </router-link>
         <router-link to="/account">Your Account</router-link>
+        <router-link to="/"> Complete Tasks </router-link>
         <button @click="signOut">Logout</button>
       </div>
     </div>
@@ -64,81 +65,4 @@ const signOut = async () => {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600&family=Roboto:wght@100;300;400;700&display=swap");
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  /* float: right; */
-
-  right: 0;
-  margin: 0.7rem 0 0 0;
-}
-/* Dropdown Button- Main body div */
-.drop-btn {
-  background-color: #0aa06e;
-  color: var(--colorBrokenWhite);
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 3rem;
-}
-.btn-content {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-around;
-  align-items: center;
-}
-.nav-profile-img {
-  width: 3rem;
-  border-radius: 50%;
-}
-.drop-btn > p {
-  font-size: 1rem;
-}
-.drop-btn:hover {
-  border-radius: 2rem 2rem 0 0;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-items {
-  display: none;
-  position: absolute;
-  background-color: var(--colorBrokenWhite);
-  min-width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  right: 0;
-  border-radius: 0 0 2rem 2rem;
-}
-/* Links inside the dropdown */
-.dropdown-items a {
-  color: var(--colorDarkGrey);
-  padding: 1rem 1rem;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-.dropdown-items button {
-  width: 100%;
-  padding: 0.7rem 0;
-  border-radius: 0 0 2rem 2rem;
-  border-color: var(--colorRed);
-  color: var(--colorRed);
-  cursor: pointer;
-}
-.dropdown-items button:hover {
-  background-color: var(--colorRed);
-  color: var(--colorBrokenWhite);
-}
-/* Change color of dropdown links on hover */
-.dropdown-items a:hover {
-  background-color: #ddd;
-}
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-items {
-  display: block;
-}
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-items {
-  display: block;
-}
 </style>
