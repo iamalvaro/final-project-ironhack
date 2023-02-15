@@ -162,7 +162,7 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Wednesday 15, Febrero 2023
 
-- [ ] Create scroll up feature
+- [x] Create scroll up feature
 - [ ] Change action buttons img for icons
 - [ ] Finish Profile Page functionality
 

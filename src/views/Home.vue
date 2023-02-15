@@ -15,6 +15,7 @@
         @editTask="editTaskData"
       />
     </div>
+    <ScrollUp />
     <TaskFooter />
   </div>
 </template>
@@ -27,6 +28,7 @@ import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import TaskFooter from "../components/TaskFooter.vue";
+import ScrollUp from "../components/ScrollUp.vue";
 const taskStore = useTaskStore();
 
 // Variable para guardar las tareas de supabase

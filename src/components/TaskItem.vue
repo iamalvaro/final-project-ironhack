@@ -127,7 +127,6 @@ const activateEdit = () => {
 };
 //function to validate edit and send data to parent through emit
 const submitEdit = () => {
-  console.log("Click clack MF");
   if (taskTitle.value.length === 0 || taskContent.value.length === 0) {
     alert("Title or description cannot be empty");
   } else {
@@ -176,7 +175,7 @@ const errorMsg = ref("");
 }
 .task-background-completed {
   background-color: rgb(112, 234, 112);
-  color: white;
+  color: var(--colorBrokenWhite);
 }
 </style>
 
