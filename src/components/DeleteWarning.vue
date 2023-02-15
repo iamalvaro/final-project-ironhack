@@ -32,7 +32,7 @@ const closeModalDeleteTask = () => {
   emit("emitCloseModal", falseValue.value);
 };
 
-const emit = defineEmits(["emitDeleteTask"]);
+const emit = defineEmits(["emitDeleteTask", "emitCloseModal"]);
 </script>
 
 <style scoped></style>

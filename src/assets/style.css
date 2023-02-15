@@ -321,6 +321,8 @@ button {
   display: flex;
   flex-direction: row;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .action-icon {
  margin: 0.5rem auto;
@@ -331,6 +333,8 @@ button {
   display: inline;
 }
 .action-icon > i {
+  width: 2rem;
+  height: 2rem;
   margin: 0 1rem;
   display: inline;
   font-size: 2rem;
@@ -572,9 +576,6 @@ button {
 @media (max-width: 766px) {
   .account-container-row {
     flex-direction: column;  
-    /* justify-content: center;
-    align-items: center; */
-    /* align-content: center;    */
   }
   .account-container-row > img {
     margin: 0 0 0 -3rem;
@@ -586,9 +587,9 @@ button {
   .task-wrapper {
     margin: 0;
   }
-  .task-container {
-    /* width: 15vw; */
-   }
+  /* .task-container {
+    width: 15vw;
+   } */
    /* NAV DROPDOWN USER NAME-- HIDE WHEN SCREEN IS SMALL */
    .nav-account-name {
     display: none;
@@ -597,11 +598,11 @@ button {
     padding: 0.5rem 2rem;
    
   }
-  .dropdown-items{
+  /* .dropdown-items{
     
-    /* border-radius: 2rem 0 2rem 2rem; */
+    border-radius: 2rem 0 2rem 2rem;
 
-  }
+  } */
   /* a:first-child {
     border-radius: 2rem 0 0 0;
     

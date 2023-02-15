@@ -29,16 +29,20 @@
     </div>
     <div class="actions">
       <div @click="setTaskComplete" class="action-icon">
-        <!-- <i class="fa-regular fa-badge-check"></i> -->
-        <!-- <i class="fa-solid fa-badge-check"></i> -->
+        <!-- <i class="fa-regular fa-badge-check"></i>
+
+        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-badge-check"></i> -->
         <img src="../../public/checked.png" alt="task completed" />
       </div>
       <div @click="activateEdit" class="action-icon">
         <!-- <i class="fa-regular fa-pen-to-square"></i> -->
+
         <img src="../../public/edit.png" alt="edit task" />
       </div>
       <div @click="activateDelete" class="action-icon">
         <!-- <i class="fa-regular fa-trash-xmark"></i> -->
+
         <img src="../../public/cancel.png" alt="delete post" />
       </div>
     </div>
