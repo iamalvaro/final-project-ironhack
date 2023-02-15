@@ -18,7 +18,7 @@
         </h3>
         <h3 class="profile-details-heading">Name:</h3>
         <h3 class="profile-details">
-          {{ username ? username.split("@")[0] : username }}
+          {{ name }}
         </h3>
         <h3 class="profile-details-heading">Email:</h3>
         <h3 class="profile-details">{{ userEmail }}</h3>

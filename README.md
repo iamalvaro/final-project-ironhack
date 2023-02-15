@@ -165,7 +165,15 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Create scroll up feature
 - [x] Add functionality to scroll up feature
 - [ ] Change action buttons img for icons
-- [ ] Finish Profile Page functionality
+- [x] Finish Profile Page functionality
+
+#### Day Nine
+
+###### Thursday 16, Febrero 2023
+
+- [ ] Figure out why icons are not displaying
+- [ ] Change action buttons img for icons
+- [ ] Change avatar image in profile
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
