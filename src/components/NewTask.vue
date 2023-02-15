@@ -21,7 +21,7 @@
       <input @click="showDeadline" class="deadline-checkbox" type="checkbox" />
     </div>
     <template v-if="deadlineToggle">
-      <input type="date" />
+      <input class="deadline-date" type="date" min="{{ date }}" />
     </template>
     <button @click="addTask" class="create-button">Add Task</button>
   </div>
@@ -65,6 +65,10 @@ const deadlineToggle = ref(false);
 const showDeadline = () => {
   deadlineToggle.value = !deadlineToggle.value;
 };
+
+//Date to determine minumum date possible in date picker input
+const date = new Date();
+console.log(date);
 </script>
 
 <style></style>

@@ -74,7 +74,7 @@ export const useUserStore = defineStore("user", {
       if (newName === null){
         newWebsite = this.profile.website;
       }
-      const {data, error} = await supabase
+      const {data: profile, error} = await supabase
       .from('profiles')
       .update({
         username: newUsername,
@@ -82,7 +82,7 @@ export const useUserStore = defineStore("user", {
         website: newWebsite,
         image_src: newAvatar,
       })
-      .match({id: this.profile.id})
+      .match({user_id: this.user.id})
     },
 
     async signOut(){

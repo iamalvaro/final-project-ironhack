@@ -152,18 +152,19 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Tuesday 14, Febrero 2023
 
-- [x] Scrolling bloqued when modal is active
+- [x] Scrolling blocked when modal is active
 - [x] Finish styling modal
 - [x] Make dropdown menu its own component
 - [x] Start dealine feature
-- [ ] Create scroll up feature
-- [ ] Change action buttons img for icons
-- [ ] Finish Profile Page functionality
 - [x] Fix nav bar
 
 #### Day Eight
 
 ###### Wednesday 15, Febrero 2023
+
+- [ ] Create scroll up feature
+- [ ] Change action buttons img for icons
+- [ ] Finish Profile Page functionality
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
