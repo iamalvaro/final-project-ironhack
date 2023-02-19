@@ -166,14 +166,28 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Add functionality to scroll up feature
 - [ ] Change action buttons img for icons
 - [x] Finish Profile Page functionality
+- [x] Modify widths on media query of new task and task item
 
 #### Day Nine
 
 ###### Thursday 16, Febrero 2023
 
-- [ ] Figure out why icons are not displaying
-- [ ] Change action buttons img for icons
+- [x] Account details updated when edit is submitted
+- [x] Fixed with profile webpage
+
+#### Day Ten
+
+###### Sunday 19, Febrero 2023
+
+- [x] Figure out why icons are not displaying
+- [x] Change action buttons img for icons
+
+#### Day Ten
+
+###### MOnday 20, Febrero 2023
+
 - [ ] Change avatar image in profile
+- [ ] Look into creating Complete Task category
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

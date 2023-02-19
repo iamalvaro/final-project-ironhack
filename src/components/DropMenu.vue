@@ -40,7 +40,7 @@ const username = ref("");
 
 const getUsername = async () => {
   await userStore.fetchUser();
-  username.value = userStore.profile.username;
+  return (username.value = userStore.profile.username);
 };
 // constant that calls user email from the useUSerStore
 const userEmail = ref("");

@@ -315,33 +315,40 @@ button {
   margin: 0.5rem;
 }
 .actions {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  display: flex;  
+  width: 80%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  align-content: flex-start;
 }
 .action-icon {
- margin: 0.5rem auto;
+ margin: 2rem auto;
+ align-self: flex-end;
 }
-.action-icon > img {
-  width: 2.5rem;
-  margin: 0 1rem;
-  display: inline;
+.check {
+  color: var(--colorGreen);
 }
+.edit {
+ color: #ffc61b;
+}
+.delete {
+ color: var(--colorRed);
+}
+
 .action-icon > i {
   width: 2rem;
   height: 2rem;
   margin: 0 1rem;
-  display: inline;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  align-self: flex-end;
 }
-.action-icon > img:hover {
-  width: 2.6rem;
-  box-shadow: 0 0 10px #303030;
+.action-icon > i:hover {
+ 
+  text-shadow: var(--colorLightGrey) 1px 1px;
 }
 .edit-textarea {
   margin: 0.5rem 0 1rem 0;
+  /* width: 100%; */
 }
 
 /*DONT SHOW SCROLL-BAR */
@@ -601,7 +608,7 @@ button {
     display: none;
   }
   .drop-btn {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 4rem;
    
   }
   /* .dropdown-items{

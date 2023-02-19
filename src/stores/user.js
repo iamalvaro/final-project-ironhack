@@ -71,7 +71,7 @@ export const useUserStore = defineStore("user", {
       if (newName === null){
         newName = this.profile.name;
       }
-      if (newName === null){
+      if (newWebsite === null){
         newWebsite = this.profile.website;
       }
       const {data: profile, error} = await supabase

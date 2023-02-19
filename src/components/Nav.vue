@@ -10,16 +10,6 @@
     <router-link to="/">Task Manager</router-link>
 
     <router-link to="/account">Your Account</router-link> -->
-    <!-- <div>
-      <ul>
-        <li class="log-out-welcome">
-          <p>{{ userEmail.split("@")[0] }}</p>
-        </li>
-        <li>
-          <button @click="signOut" class="nav-button">Log out</button>
-        </li>
-      </ul>
-    </div> -->
     <DropMenu />
   </nav>
 </template>

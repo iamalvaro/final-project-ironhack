@@ -143,6 +143,7 @@ const submitProfileChanges = async () => {
   );
   console.log("this works??");
   profileEditToggle.value = false;
+  getProfile();
 };
 </script>
 

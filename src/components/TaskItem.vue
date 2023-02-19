@@ -28,24 +28,21 @@
       </template>
     </div>
     <div class="actions">
-      <div @click="setTaskComplete" class="action-icon">
-        <!-- <i class="fa-regular fa-badge-check"></i>
-          
+      <div @click="setTaskComplete" class="action-icon check">
+        <i v-if="completeIcon" class="fa-solid fa-square-check"></i>
+        <i v-else class="fa-regular fa-square-check"></i>
 
-        <i class="fa-solid fa-arrow-up"></i>
-        <i class="fa-solid fa-badge-check"></i> -->
-        <!-- <i class="fa-regular fa-badge-check"></i> -->
-        <img src="/checked.png" alt="task completed" />
+        <!-- <img src="/checked.png" alt="task completed" /> -->
       </div>
-      <div @click="activateEdit" class="action-icon">
-        <!-- <i class="fa-regular fa-pen-to-square"></i> -->
-
-        <img src="/edit.png" alt="edit task" />
+      <div @click="activateEdit" class="action-icon edit">
+        <i v-if="editToggle" class="fa-solid fa-pen-to-square"></i>
+        <i v-else class="fa-regular fa-pen-to-square"></i>
       </div>
-      <div @click="activateDelete" class="action-icon">
-        <!-- <i class="fa-regular fa-trash-xmark"></i> -->
+      <div @click="activateDelete" class="action-icon delete">
+        <i v-if="deleteToggle" class="fa-solid fa-square-minus"></i>
+        <i v-else class="fa-regular fa-square-minus"></i>
 
-        <img src="/cancel.png" alt="delete post" />
+        <!-- <img src="/cancel.png" alt="delete post" /> -->
       </div>
     </div>
     <!-- DELETE WARNING SCREEN -->
@@ -62,14 +59,14 @@
     <!-- EDIT INPUTS -->
     <template class="edit-input" v-if="editToggle">
       <input type="text" v-model="taskTitle" placeholder="Edit title" />
-      <div class="scrollbar-container">
-        <textarea
-          class="edit-textarea"
-          v-model="taskContent"
-          cols="30"
-          rows="5"
-        ></textarea>
-      </div>
+
+      <textarea
+        class="edit-textarea"
+        v-model="taskContent"
+        cols="30"
+        rows="5"
+      ></textarea>
+
       <button @click="submitEdit">Edit Task</button>
     </template>
   </div>
@@ -146,8 +143,12 @@ const submitEdit = () => {
   }
 };
 
+//Set task complete and bolean to change icon
+const completeIcon = ref(false);
+
 const setTaskComplete = () => {
   emit("taskItemComplete", props.task);
+  completeIcon.value = !completeIcon.value;
 };
 
 //DELETE TASK ITEM
@@ -180,7 +181,7 @@ const errorMsg = ref("");
   color: white; */
 }
 .task-background-completed {
-  background-color: rgb(112, 234, 112, 0.5);
+  background-color: rgba(130, 238, 130, 0.7);
 
   color: var(--colorLightGrey);
 }
