@@ -58,6 +58,9 @@ textarea {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
+/* input[type="file"] {
+  display: none;
+} */
 span {
   height: 1rem;
 }
@@ -252,9 +255,10 @@ button {
 }
 .deadline-checkbox {
   width: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem;  
   accent-color: var(--colorGreen);  
 }
+
 
 
 
@@ -601,6 +605,8 @@ button {
   margin: 0 0 0 0; 
    padding: 0 -3rem 0 0;
 } */
+
+
 
 /* Media querys poner container-row en column  */
 @media (max-width: 766px) {

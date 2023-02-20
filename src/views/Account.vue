@@ -45,8 +45,13 @@
         </label>
         <!-- <img :src="avatar_url" alt="upload image" /> -->
         <label>
-          <input type="file" @change="uploadAvatar" required />
-          <span>Avatar</span>
+          <input
+            type="file"
+            accept=".jpg,.png,.gif"
+            class="masked-input solo-btn"
+          />
+          <!-- <input class="mask-input" @change="uploadAvatar" required />
+          <span>Avatar</span> -->
         </label>
         <button @click="submitProfileChanges">Submit Changes</button>
       </div>
@@ -78,8 +83,6 @@ const name = ref(null);
 //VALUES FROM INPUTS
 const newUsername = ref(null);
 const newName = ref(null);
-
-// const newEmail = ref(null);
 const newWebsite = ref(null);
 const newAvatar = ref(null);
 
@@ -94,6 +97,7 @@ async function getProfile() {
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
 }
+//avartar_url instead of image_src
 
 //FETCH EMAIL
 
@@ -112,8 +116,9 @@ const activateEditProfile = () => {
 
 //Edit profile button content
 const editProfileButton = ref(
-  profileEditToggle === true ? "Discard Edit" : "Edit Profile"
+  profileEditToggle.value === true ? "Discard Edit" : "Edit Profile"
 );
+
 // const editProfileButton = () => {
 //   if (profileEditToggle === true) {
 //     return "Discard Edit";
@@ -141,14 +146,83 @@ const submitProfileChanges = async () => {
     newWebsite.value,
     newAvatar.value
   );
-  console.log("this works??");
+  // console.log("this works??");
   profileEditToggle.value = false;
   getProfile();
 };
 
-const uploadAvatar = async () => {
-  console.log("subien avatar");
+//AVATAR UPLOAD TO DATABASE
+
+// const uploadAvatar = async (event) => {
+//   console.log("subiendo avatar");
+//   avatarFile = event.target.files[0];
+//   const { data, error } = await supabase.storage
+//     .from("avatars")
+//     .upload("public/avatar1.png", avatarFile, {
+//       cacheControl: "3600",
+//       upsert: false,
+//     });
+// };
+
+const uploadAvatar = async (e) => {
+  const files = e.target.files;
+
+  //loading.value = true;
+  if (!files || !files.length === 0) {
+    throw new Error("Please select nad image to upload");
+  }
+  const file = files[0];
+  //Batucada.png -> .png
+  const fileExt = file.name.split(".").pop();
+  const filePath = `${Math.random()}.${fileExt}`;
+
+  let { error: uploadError } = await supabase.storage
+    .from("avatars")
+    .upload(filePath, file);
+
+  avatar_url.value = filePath;
+
+  await userStore.uploadAvatar(avatar_url.value);
+
+  const { data, error } = await supabase.storage
+    .from("avatars")
+    .download(filePath);
+  avatar_url.value = URL.createObjectURL(data);
 };
 </script>
 
-<style></style>
+<style scoped>
+.account-container {
+  min-height: 71vh;
+}
+.solo-btn {
+  border: none;
+  padding: 0rem 0 2.5rem 1rem;
+  color: var(--colorLightGrey);
+}
+input::file-selector-button {
+  /* font-weight: bold; */
+  color: var(--colorLightGrey);
+  padding: 0.5em;
+  border: 2px solid var(--colorLightGrey);
+  border-radius: 2.5rem;
+  font-family: Montserrat;
+}
+input::file-selector-button:hover {
+  border: 2px solid var(--colorGreen);
+  color: var(--colorGreen);
+}
+.solo-btn > button {
+  border: 2px solid var(--colorLightGrey);
+}
+/* .masked-input {
+  opacity: 0;
+  display: none;
+  position: relative;
+  z-index: 2;
+} */
+/* .mask-input {
+  position: absolute;
+  top: -8px;
+} */
+</style>
