@@ -2,7 +2,7 @@
   <div class="sign-container">
     <img src="/checked.png" alt="logo" class="app-logo" />
     <div class="sign-header">
-      <h3 class="header-title">Register to TaskPro-ProTask</h3>
+      <h3 class="header-title">Register to TaskPro</h3>
       <p class="header-subtitle">Start organizing your tasks!</p>
     </div>
 

@@ -184,8 +184,9 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 #### Day Ten
 
-###### MOnday 20, Febrero 2023
+###### Monday 20, Febrero 2023
 
+- [x] Change Sign in & sign up sizing
 - [ ] Change avatar image in profile
 - [ ] Look into creating Complete Task category
 

@@ -4,7 +4,7 @@
   <div class="sign-container">
     <img src="/checked.png" alt="logo" class="app-logo" />
     <div class="sign-header">
-      <h3 class="header-title">Log In to TaskAdmin Xtreme</h3>
+      <h3 class="header-title">Log In to TaskPro</h3>
       <p class="header-subtitle">Enter your details to access your tasks</p>
     </div>
     <form @submit.prevent="signIn" class="form-sign-in">
