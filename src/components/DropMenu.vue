@@ -11,7 +11,7 @@
           "
           alt="Profile picture"
         />
-        <p class="nav-account-name">{{ userEmail.split("@")[0] }}</p>
+        <p class="nav-account-name">{{ username }}</p>
       </div>
       <div class="dropdown-items">
         <router-link to="/"> Home </router-link>
@@ -42,6 +42,7 @@ const getUsername = async () => {
   await userStore.fetchUser();
   return (username.value = userStore.profile.username);
 };
+getUsername();
 // constant that calls user email from the useUSerStore
 const userEmail = ref("");
 const getEmail = async () => {

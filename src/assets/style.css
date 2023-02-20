@@ -484,8 +484,8 @@ button {
     }
     .btn-content {
       display: flex;
-      gap: 2rem;
-      justify-content: space-around;
+      gap: 1rem;
+      justify-content: center;
       align-items: center;
     }
     .nav-profile-img {
@@ -625,17 +625,18 @@ button {
   .task-container {
     width: 55vw;
    }
-   /* NAV DROPDOWN USER NAME-- HIDE WHEN SCREEN IS SMALL */
-   .nav-account-name {
-    display: none;
+   .task-description-container {
+    grid-template-columns: 17rem minmax(0, 1fr); 
   }
-  .drop-btn {
+   /* NAV DROPDOWN USER NAME-- HIDE WHEN SCREEN IS SMALL */
+   /* .nav-account-name {
+    display: none;
+  } */
+  /* .drop-btn {
     padding: 0.5rem 4rem;
    
-  }
-  .task-description-container {
-    grid-template-columns: 18rem minmax(0, 1fr); 
-  }
+  } */
+
 
 }
 @media (min-width: 766px) {

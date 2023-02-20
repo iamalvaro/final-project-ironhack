@@ -45,7 +45,7 @@
         </label>
         <!-- <img :src="avatar_url" alt="upload image" /> -->
         <label>
-          <input v-model="newAvatar" type="image" required />
+          <input type="file" @change="uploadAvatar" required />
           <span>Avatar</span>
         </label>
         <button @click="submitProfileChanges">Submit Changes</button>
@@ -144,6 +144,10 @@ const submitProfileChanges = async () => {
   console.log("this works??");
   profileEditToggle.value = false;
   getProfile();
+};
+
+const uploadAvatar = async () => {
+  console.log("subien avatar");
 };
 </script>
 

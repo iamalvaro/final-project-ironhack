@@ -187,7 +187,10 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 ###### Monday 20, Febrero 2023
 
 - [x] Change Sign in & sign up sizing
+- [x] Add show password icon and functionality
+- [x] Show username on dropdown menu
 - [ ] Change avatar image in profile
+- [ ] Block action buttons when other is activated
 - [ ] Look into creating Complete Task category
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -10,7 +10,7 @@ import { onMounted, ref, onBeforeMount } from "vue";
 const scrollUp = ref();
 
 const showOnScroll = () => {
-  if (window.scrollY > 350) {
+  if (window.scrollY > 400) {
     scrollUp.value.classList.add("show-btn");
   } else {
     scrollUp.value.classList.remove("show-btn");
