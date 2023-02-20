@@ -21,16 +21,20 @@
             <span>Email</span>
           </label>
         </div>
-        <div class="form-input">
+        <div class="form-input pwd">
           <label>
             <input
-              type="password"
+              :type="passwordToggle ? 'text' : 'password'"
               class="input-field"
               id="password"
               v-model="password"
               required
             />
             <span>Password</span>
+            <span @click="showPassword" class="show-pw"
+              ><i v-if="passwordToggle" class="fa-solid fa-eye-slash"></i>
+              <i v-else class="fa-solid fa-eye"></i
+            ></span>
           </label>
         </div>
         <div class="form-input">
@@ -79,6 +83,11 @@ const signIn = async () => {
       errorMsg.value = null;
     }, 5000);
   }
+};
+//Show or hide password
+const passwordToggle = ref(false);
+const showPassword = () => {
+  passwordToggle.value = !passwordToggle.value;
 };
 </script>
 

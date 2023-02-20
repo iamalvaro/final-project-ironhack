@@ -31,8 +31,6 @@
       <div @click="setTaskComplete" class="action-icon check">
         <i v-if="completeIcon" class="fa-solid fa-square-check"></i>
         <i v-else class="fa-regular fa-square-check"></i>
-
-        <!-- <img src="/checked.png" alt="task completed" /> -->
       </div>
       <div @click="activateEdit" class="action-icon edit">
         <i v-if="editToggle" class="fa-solid fa-pen-to-square"></i>
@@ -41,8 +39,6 @@
       <div @click="activateDelete" class="action-icon delete">
         <i v-if="deleteToggle" class="fa-solid fa-square-minus"></i>
         <i v-else class="fa-regular fa-square-minus"></i>
-
-        <!-- <img src="/cancel.png" alt="delete post" /> -->
       </div>
     </div>
     <!-- DELETE WARNING SCREEN -->

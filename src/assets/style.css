@@ -193,6 +193,21 @@ button {
 .go-to-other-sign {
   font-size: 0.8rem;
 }
+/* SIGN IN VIEW PASSWORD */
+.pwd {
+  position: relative;
+}
+.show-pw {
+  z-index: 9999;
+	position: absolute;
+	top: 30%;
+	right: 1rem;
+  cursor: pointer;
+  color: var(--colorLightGrey);
+}
+.show-pw:hover {
+  color: var(--colorGreen);
+}
 
 /* HOME */
 .add-task-wrapper {
@@ -313,22 +328,33 @@ button {
 .actions {
   display: flex;  
   width: 80%;
-  align-items: center;
-  justify-content: space-around;
-  align-content: flex-start;
+  /* align-items: center; */
+  /* justify-content: space-around; */
+  /* align-content: flex-start; */
 }
 .action-icon {
  margin: 2rem auto;
- align-self: flex-end;
+ /* align-self: flex-end; */
+ /* display: flex;
+ align-content: flex-end;
+ align-items: flex-end;
+ justify-content: center; */
+
 }
 .check {
   color: var(--colorGreen);
+}
+.check > i {
+  padding: 0.1rem 0 0 0;
 }
 .edit {
  color: #ffc61b;
 }
 .delete {
  color: var(--colorRed);
+}
+.delete > i {
+  padding: 0.1rem 0 0 0;
 }
 
 .action-icon > i {
