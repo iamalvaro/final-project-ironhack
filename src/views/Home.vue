@@ -5,6 +5,7 @@
       <!-- <h3>Your account:</h3>
       <router-link to="/account">Account</router-link> -->
       <NewTask />
+      <ViewSelect />
     </div>
     <div class="task-wrapper">
       <TaskItem
@@ -29,6 +30,7 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import TaskFooter from "../components/TaskFooter.vue";
 import ScrollUp from "../components/ScrollUp.vue";
+import ViewSelect from "../components/ViewSelect.vue";
 const taskStore = useTaskStore();
 
 // Variable para guardar las tareas de supabase
@@ -45,7 +47,7 @@ const getTasks = async () => {
 
   uncompletedTasks.value = tasks.value.filter((task) => !task.is_complete);
 
-  console.log(uncompletedTasks.value, completedTasks.value);
+  // console.log(uncompletedTasks.value, completedTasks.value);
 };
 
 getTasks();

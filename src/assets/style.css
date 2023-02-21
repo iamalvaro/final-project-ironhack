@@ -469,9 +469,7 @@ button {
     /* DROPDOWN MENU  */
     .dropdown {
       position: relative;
-      display: inline-block;
-      /* float: right; */
-    
+      display: inline-block;          
       right: 0;
       margin: 0.7rem 0 0 0;
     }
@@ -482,6 +480,7 @@ button {
       padding: 0.5rem 1rem;
       border: none;
       border-radius: 3rem;
+      
     }
     .btn-content {
       display: flex;
@@ -493,9 +492,9 @@ button {
       width: 3rem;
       border-radius: 50%;
     }
-    .drop-btn > p {
+    /* .drop-btn > p {
       font-size: 1rem;
-    }
+    } */
     .drop-btn:hover {
       border-radius: 2rem 2rem 0 0;
     }
@@ -534,15 +533,13 @@ button {
     /* Change color of dropdown links on hover */
     .dropdown-items a:hover {
       background-color: #ddd;
+      color: var(--colorGreen);
     }
     /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-items {
       display: block;
     }
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-items {
-      display: block;
-    }
+  
 
 /* Account View */
 
@@ -631,6 +628,12 @@ button {
    .task-description-container {
     grid-template-columns: 17rem minmax(0, 1fr); 
   }
+
+  /* view selector ajust size on smallscreen */
+  .dropdown-views {
+    width: 98.5%;
+
+  }
    /* NAV DROPDOWN USER NAME-- HIDE WHEN SCREEN IS SMALL */
    /* .nav-account-name {
     display: none;
@@ -656,4 +659,5 @@ button {
   .image-container {
     margin: 0 0 1rem 0;
   }
+
 }

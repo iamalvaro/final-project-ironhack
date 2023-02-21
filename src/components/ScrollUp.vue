@@ -30,35 +30,6 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
-
-// const app = new Vue({
-//   el: "#app",
-//   data() {
-//     return {
-//       scTimer: 0,
-//       scY: 0,
-//     };
-//   },
-//   mounted() {
-//     window.addEventListener("scroll", this.handleScroll);
-//   },
-//   methods: {
-//     handleScroll: function () {
-//       if (this.scTimer) return;
-//       this.scTimer = setTimeout(() => {
-//         this.scY = window.scrollY;
-//         clearTimeout(this.scTimer);
-//         this.scTimer = 0;
-//       }, 100);
-//     },
-//     toTop: function () {
-//       window.scrollTo({
-//         top: 0,
-//         behavior: "smooth",
-//       });
-//     },
-//   },
-// });
 </script>
 
 <style scoped>
@@ -69,7 +40,6 @@ const scrollToTop = () => {
   right: 1.5rem;
   position: fixed;
   font-size: 2.5rem;
-  /* display: flex; */
   color: var(--colorLightGrey);
   background-color: var(--colorBrokenWhite);
   border-radius: 50%;
@@ -77,10 +47,12 @@ const scrollToTop = () => {
   display: none;
   cursor: pointer;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  opacity: 0.9;
 }
 .scroll-up:hover {
   color: var(--colorDarkGrey);
   font-size: 2.6rem;
+  opacity: 1;
 }
 
 .show-btn {
