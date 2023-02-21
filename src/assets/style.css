@@ -258,10 +258,6 @@ button {
   padding: 0.5rem;  
   accent-color: var(--colorGreen);  
 }
-
-
-
-
 /* Tasks */
 .task-wrapper {
   margin: 0 1rem;
@@ -360,6 +356,9 @@ button {
 .delete > i {
   padding: 0.1rem 0 0 0;
 }
+.disabled {
+  color: var(--colorLightGrey);
+}
 
 .action-icon > i {
   width: 2rem;
@@ -380,9 +379,7 @@ button {
 /*DONT SHOW SCROLL-BAR */
 
 ::-webkit-scrollbar {
-  width: 0;
- 
-  
+  width: 0;  
 }
 
 /* DELETE MODAL */
@@ -550,7 +547,7 @@ button {
 /* Account View */
 
 .account-container {
-  margin: 2rem 0 1rem 3rem;
+  margin: 2rem 0 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;  
@@ -560,7 +557,7 @@ button {
   align-items: center;
   justify-content: center;
   align-content: center;
-  gap: 3rem;  
+  gap: 1rem;  
   
 }
 .account-details {
@@ -655,5 +652,8 @@ button {
 /* width of create task when big screen */
   .create-task {
     width: 35vw;
+  }
+  .image-container {
+    margin: 0 0 1rem 0;
   }
 }

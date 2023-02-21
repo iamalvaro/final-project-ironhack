@@ -2,15 +2,25 @@
   <Nav />
   <div class="account-container">
     <div class="account-container-row">
-      <img
-        class="profile-img"
-        :src="
-          avatar_url
-            ? avatar_url
-            : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
-        "
-        alt="Profile picture"
-      />
+      <div class="image-container">
+        <img
+          class="profile-img"
+          :src="
+            avatar_url
+              ? avatar_url
+              : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
+          "
+          alt="Profile picture"
+        />
+        <template class="edit-profile" v-if="profileEditToggle">
+          <input
+            type="file"
+            accept=".jpg,.png,.gif"
+            class="solo-btn"
+            @change="uploadAvatar"
+          />
+        </template>
+      </div>
       <div class="account-details">
         <h3 class="profile-details-heading">Username:</h3>
         <h3 class="profile-details">
@@ -43,13 +53,12 @@
           <input v-model="newWebsite" type="text" required />
           <span>Website</span>
         </label>
-        <!-- <img :src="avatar_url" alt="upload image" /> -->
         <label>
-          <input
+          <!-- <input
             type="file"
             accept=".jpg,.png,.gif"
             class="masked-input solo-btn"
-          />
+          /> -->
           <!-- <input class="mask-input" @change="uploadAvatar" required />
           <span>Avatar</span> -->
         </label>
@@ -93,7 +102,7 @@ onMounted(() => {
 async function getProfile() {
   await userStore.fetchUser();
   username.value = userStore.profile.username;
-  avatar_url.value = userStore.profile.avatar_url;
+  avatar_url.value = userStore.profile.image_src;
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
 }
@@ -153,17 +162,6 @@ const submitProfileChanges = async () => {
 
 //AVATAR UPLOAD TO DATABASE
 
-// const uploadAvatar = async (event) => {
-//   console.log("subiendo avatar");
-//   avatarFile = event.target.files[0];
-//   const { data, error } = await supabase.storage
-//     .from("avatars")
-//     .upload("public/avatar1.png", avatarFile, {
-//       cacheControl: "3600",
-//       upsert: false,
-//     });
-// };
-
 const uploadAvatar = async (e) => {
   const files = e.target.files;
 
@@ -195,10 +193,18 @@ const uploadAvatar = async (e) => {
 .account-container {
   min-height: 71vh;
 }
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
 .solo-btn {
   border: none;
+  margin: 0;
   padding: 0rem 0 2.5rem 1rem;
   color: var(--colorLightGrey);
+  width: 70%;
 }
 input::file-selector-button {
   /* font-weight: bold; */
@@ -207,6 +213,7 @@ input::file-selector-button {
   border: 2px solid var(--colorLightGrey);
   border-radius: 2.5rem;
   font-family: Montserrat;
+  cursor: pointer;
 }
 input::file-selector-button:hover {
   border: 2px solid var(--colorGreen);

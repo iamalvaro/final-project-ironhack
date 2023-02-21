@@ -33,10 +33,13 @@ const taskStore = useTaskStore();
 
 // Variable para guardar las tareas de supabase
 const tasks = ref([]);
+const completedTasks = ref([]);
+const uncompletedTasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async () => {
-  tasks.value = await taskStore.fetchTasks();
+  await taskStore.fetchTasks();
+  tasks.value = taskStore.tasksArr;
 };
 
 getTasks();
