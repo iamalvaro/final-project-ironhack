@@ -6,7 +6,7 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     user: null,
     profile: null,
-    avatarPath: null
+    // avatarPath: null
   }),
   actions: {
     async fetchUser() {
@@ -91,13 +91,13 @@ export const useUserStore = defineStore("user", {
       .match({user_id: this.user.id})
     },
 
-    async uploadAvatar(newAvatar){
-      const {data, error} = await supabase
-      .from('profiles')
-      .update({
-        image_src: newAvatar,
-      })
-    },
+    // async uploadAvatar(newAvatar){
+    //   const {data, error} = await supabase
+    //   .from('profiles')
+    //   .update({
+    //     image_src: newAvatar,
+    //   })
+    // },
 
     async signOut(){
       const { error } = await supabase.auth.signOut();

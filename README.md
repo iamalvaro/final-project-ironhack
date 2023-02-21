@@ -195,9 +195,9 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Tuesday 21, Febrero 2023
 
-- [ ] Display avatar image in profile
+- [x] Display avatar image in profile and dropdown menu
 - [x] Change account avatar button distribution
-- [ ] Block action buttons when other is activated
+- [x] Block action buttons when other is activated
 - [ ] Look into creating Complete Task category
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

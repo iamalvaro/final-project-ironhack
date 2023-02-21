@@ -36,8 +36,15 @@
         <h3 class="profile-details">{{ website }}</h3>
       </div>
     </div>
-    <button class="edit-profil-btn" @click="activateEditProfile">
-      {{ editProfileButton }}
+    <button
+      v-if="profileEditToggle === true"
+      class="edit-profil-btn"
+      @click="activateEditProfile"
+    >
+      Discard Changes
+    </button>
+    <button v-else class="edit-profil-btn" @click="activateEditProfile">
+      Edit Profile
     </button>
     <template class="edit-profile" v-if="profileEditToggle">
       <div class="edit-profile-form">
@@ -102,11 +109,14 @@ onMounted(() => {
 async function getProfile() {
   await userStore.fetchUser();
   username.value = userStore.profile.username;
-  avatar_url.value = userStore.profile.image_src;
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
+
+  const { data, error } = await supabase.storage
+    .from("avatars")
+    .download(userStore.profile.image_src);
+  avatar_url.value = URL.createObjectURL(data);
 }
-//avartar_url instead of image_src
 
 //FETCH EMAIL
 
@@ -124,17 +134,9 @@ const activateEditProfile = () => {
 };
 
 //Edit profile button content
-const editProfileButton = ref(
-  profileEditToggle.value === true ? "Discard Edit" : "Edit Profile"
-);
-
-// const editProfileButton = () => {
-//   if (profileEditToggle === true) {
-//     return "Discard Edit";
-//   } else {
-//     return "Edit Profile";
-//   }
-// };
+// const editProfileButton = computed({
+//   profileEditToggle.value === true ? "Discard Edit" : "Edit Profile"
+// });
 
 async function signOut() {
   try {
@@ -178,9 +180,9 @@ const uploadAvatar = async (e) => {
     .from("avatars")
     .upload(filePath, file);
 
-  avatar_url.value = filePath;
+  newAvatar.value = filePath;
 
-  await userStore.uploadAvatar(avatar_url.value);
+  // await userStore.uploadAvatar(newAvatar.value);
 
   const { data, error } = await supabase.storage
     .from("avatars")

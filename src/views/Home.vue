@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { ref, onUpdated } from "vue";
+import { ref, onUpdated, onMounted } from "vue";
 import { useTaskStore } from "../stores/task";
 import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
@@ -40,6 +40,12 @@ const uncompletedTasks = ref([]);
 const getTasks = async () => {
   await taskStore.fetchTasks();
   tasks.value = taskStore.tasksArr;
+
+  completedTasks.value = tasks.value.filter((task) => task.is_complete);
+
+  uncompletedTasks.value = tasks.value.filter((task) => !task.is_complete);
+
+  console.log(uncompletedTasks.value, completedTasks.value);
 };
 
 getTasks();

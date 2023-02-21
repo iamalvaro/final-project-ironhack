@@ -27,7 +27,7 @@
         </div>
       </template>
     </div>
-    <div class="actions">
+    <!-- <div class="actions">
       <div @click="setTaskComplete" class="action-icon check">
         <i v-if="completeIcon" class="fa-solid fa-square-check"></i>
         <i v-else class="fa-regular fa-square-check"></i>
@@ -37,6 +37,33 @@
         <i v-else class="fa-regular fa-pen-to-square"></i>
       </div>
       <div @click="activateDelete" class="action-icon delete">
+        <i v-if="deleteToggle" class="fa-solid fa-square-minus"></i>
+        <i v-else class="fa-regular fa-square-minus"></i>
+      </div>
+    </div> -->
+    <div class="actions">
+      <div
+        @click="setTaskComplete"
+        :class="editToggle ? 'disabled action-icon' : 'check action-icon'"
+      >
+        <i v-if="completeIcon" class="fa-solid fa-square-check"></i>
+        <i v-else class="fa-regular fa-square-check"></i>
+      </div>
+      <div
+        @click="activateEdit"
+        :class="completeIcon ? 'disabled action-icon' : 'action-icon edit'"
+      >
+        <i v-if="editToggle" class="fa-solid fa-pen-to-square"></i>
+        <i v-else class="fa-regular fa-pen-to-square"></i>
+      </div>
+      <div
+        @click="activateDelete"
+        :class="
+          editToggle || completeIcon
+            ? 'disabled action-icon'
+            : 'delete action-icon'
+        "
+      >
         <i v-if="deleteToggle" class="fa-solid fa-square-minus"></i>
         <i v-else class="fa-regular fa-square-minus"></i>
       </div>
@@ -98,15 +125,6 @@ const taskTitleModifier = () => {
   }
 };
 
-// const shortTitle = ref(
-//   props.task.title.length > 8
-//     ? props.task.title.substring(0, 8) + "..."
-//     : props.task.title
-// );
-
-// userEmail.value = useUserStore().user.email;
-// {{ userEmail.substring(0, 15) + "..." }}
-
 //Show task details
 const detailsToggle = ref(false);
 const showDetails = () => {
@@ -120,9 +138,13 @@ const taskContent = ref("");
 
 // function to toggle edit input fields
 const activateEdit = () => {
-  editToggle.value = !editToggle.value;
-  taskTitle.value = props.task.title;
-  taskContent.value = props.task.description;
+  if (completeIcon.value) {
+    return null;
+  } else {
+    editToggle.value = !editToggle.value;
+    taskTitle.value = props.task.title;
+    taskContent.value = props.task.description;
+  }
 };
 //function to validate edit and send data to parent through emit
 const submitEdit = () => {
@@ -143,14 +165,22 @@ const submitEdit = () => {
 const completeIcon = ref(false);
 
 const setTaskComplete = () => {
-  emit("taskItemComplete", props.task);
-  completeIcon.value = !completeIcon.value;
+  if (editToggle.value) {
+    return null;
+  } else {
+    emit("taskItemComplete", props.task);
+    completeIcon.value = !completeIcon.value;
+  }
 };
 
 //DELETE TASK ITEM
 const deleteToggle = ref(false);
 const activateDelete = () => {
-  deleteToggle.value = !deleteToggle.value;
+  if (editToggle.value || completeIcon.value) {
+    return null;
+  } else {
+    deleteToggle.value = !deleteToggle.value;
+  }
 };
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
@@ -162,6 +192,7 @@ const deleteTaskTest = async () => {
 };
 
 // CLOSE MODAL FROM DELETWARNING EMITTED EVENT WITH INFO STORING A FALSE VALUE TO PASS ON TO THE deleteToggle variable.
+
 const closeModalParent = (valueFromChildEvent) => {
   deleteToggle.value = valueFromChildEvent;
   // alert(valueFromChildEvent);

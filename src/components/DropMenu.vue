@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+import { supabase } from "../supabase";
 import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -31,11 +32,19 @@ import { ref } from "vue";
 const userStore = useUserStore();
 const redirect = useRouter();
 
+//Fetch Avatar image
+const avatar_url = ref(null);
+
+async function getAvatar() {
+  await userStore.fetchUser();
+  const { data, error } = await supabase.storage
+    .from("avatars")
+    .download(userStore.profile.image_src);
+  avatar_url.value = URL.createObjectURL(data);
+}
+getAvatar();
+
 // constant to save a variable that will get the user from store with a computed function imported from vue
-// const getUser = computed(() => useUserStore().user);
-
-// const getUser = computed(() => useUserStore().user);
-
 const username = ref("");
 
 const getUsername = async () => {
