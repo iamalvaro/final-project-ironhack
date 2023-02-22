@@ -34,6 +34,8 @@
         <h3 class="profile-details">{{ userEmail }}</h3>
         <h3 class="profile-details-heading">Website:</h3>
         <h3 class="profile-details">{{ website }}</h3>
+        <h3 class="profile-details-heading">Complete Tasks:</h3>
+        <h3 class="profile-details">{{ completedCount.length }}</h3>
       </div>
     </div>
     <button
@@ -60,15 +62,7 @@
           <input v-model="newWebsite" type="text" required />
           <span>Website</span>
         </label>
-        <label>
-          <!-- <input
-            type="file"
-            accept=".jpg,.png,.gif"
-            class="masked-input solo-btn"
-          /> -->
-          <!-- <input class="mask-input" @change="uploadAvatar" required />
-          <span>Avatar</span> -->
-        </label>
+        <label> </label>
         <button @click="submitProfileChanges">Submit Changes</button>
       </div>
     </template>
@@ -84,8 +78,10 @@ import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
 import TaskFooter from "../components/TaskFooter.vue";
+import { useTaskStore } from "../stores/task";
 
 const userStore = useUserStore();
+const taskStore = useTaskStore();
 
 const redirect = useRouter();
 
@@ -126,17 +122,23 @@ const getEmail = async () => {
 };
 getEmail();
 
+//Logic to bring complete task count
+// defineProps({ completeCount: string });
+
+const completedCount = ref([]);
+
+const getCompletedCount = async () => {
+  await taskStore.fetchTasks();
+  completedCount.value = taskStore.completeArr;
+};
+getCompletedCount();
+
 //Edit profile toggle
 
 const profileEditToggle = ref(false);
 const activateEditProfile = () => {
   profileEditToggle.value = !profileEditToggle.value;
 };
-
-//Edit profile button content
-// const editProfileButton = computed({
-//   profileEditToggle.value === true ? "Discard Edit" : "Edit Profile"
-// });
 
 async function signOut() {
   try {

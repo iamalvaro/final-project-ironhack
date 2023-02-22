@@ -42,29 +42,13 @@ const viewTaskOption = ref("pending");
 
 // funcion conectada a un custom event que viene de el ocmp viewSelect apra recibir info de la prioridad de la tarea
 
-const displayOption = (infoDeEmit) => {
-  console.log(viewTaskOption.value);
+// const displayOption = (infoDeEmit) => {
+//   console.log(viewTaskOption.value);
 
-  viewTaskOption.value = infoDeEmit;
-  console.log(viewTaskOption.value);
+//   viewTaskOption.value = infoDeEmit;
+//   console.log(viewTaskOption.value);
 
-  // Watch effect to assing display options
-  // watchEffect(() => {
-  //   if (viewTaskOption.value === "all") {
-  //     // console.log("something");
-  //     displayedTasks.value = tasks.value;
-  //   }
-  //   if (viewTaskOption.value === "completed") {
-  //     // console.log("completed tasks");
-  //     displayedTasks.value = tasks.value;
-  //     displayedTasks.value = completedTasks.value;
-  //     console.log(displayedTasks.value);
-  //   }
-  //   if (viewTaskOption.value === "pending") {
-  //     displayedTasks.value = uncompletedTasks.value;
-  //   }
-  // });
-};
+// };
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async () => {
