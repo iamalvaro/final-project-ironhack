@@ -12,7 +12,7 @@
           alt="Profile picture"
         />
         <p class="nav-account-name">
-          {{ username ? username : userEmail.split("@")[0] }}
+          {{ username ? username : username.split("@")[0] }}
         </p>
       </div>
       <div class="dropdown-items">

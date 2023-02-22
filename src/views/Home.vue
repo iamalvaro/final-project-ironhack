@@ -4,12 +4,12 @@
     <div class="add-task-wrapper">
       <!-- <h3>Your account:</h3>
       <router-link to="/account">Account</router-link> -->
-      <NewTask />
-      <ViewSelect />
+      <NewTask @refresh-tasks="getTasks" />
+      <ViewSelect @view-task-option="sortTasks" />
     </div>
     <div class="task-wrapper">
       <TaskItem
-        v-for="task in tasks"
+        v-for="task in displayedTasks"
         :key="task.id"
         :task="task"
         @task-item-complete="completeTaskData"
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref, onUpdated, onMounted } from "vue";
+import { ref, onUpdated, onMounted, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
 import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
@@ -37,24 +37,70 @@ const taskStore = useTaskStore();
 const tasks = ref([]);
 const completedTasks = ref([]);
 const uncompletedTasks = ref([]);
+const displayedTasks = ref([]);
+const viewTaskOption = ref("pending");
+
+// funcion conectada a un custom event que viene de el ocmp viewSelect apra recibir info de la prioridad de la tarea
+
+const displayOption = (infoDeEmit) => {
+  console.log(viewTaskOption.value);
+
+  viewTaskOption.value = infoDeEmit;
+  console.log(viewTaskOption.value);
+
+  // Watch effect to assing display options
+  // watchEffect(() => {
+  //   if (viewTaskOption.value === "all") {
+  //     // console.log("something");
+  //     displayedTasks.value = tasks.value;
+  //   }
+  //   if (viewTaskOption.value === "completed") {
+  //     // console.log("completed tasks");
+  //     displayedTasks.value = tasks.value;
+  //     displayedTasks.value = completedTasks.value;
+  //     console.log(displayedTasks.value);
+  //   }
+  //   if (viewTaskOption.value === "pending") {
+  //     displayedTasks.value = uncompletedTasks.value;
+  //   }
+  // });
+};
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async () => {
   await taskStore.fetchTasks();
   tasks.value = taskStore.tasksArr;
+  completedTasks.value = taskStore.completeArr;
+  uncompletedTasks.value = taskStore.incompleteArr;
 
-  completedTasks.value = tasks.value.filter((task) => task.is_complete);
+  sortTasks("all");
 
-  uncompletedTasks.value = tasks.value.filter((task) => !task.is_complete);
-
-  console.log(uncompletedTasks.value, completedTasks.value);
+  // console.log(uncompletedTasks.value, completedTasks.value);
 };
 
 getTasks();
 
-onUpdated(() => {
+const sortTasks = (option) => {
+  viewTaskOption.value = option;
+
+  if (viewTaskOption.value === "all") {
+    // console.log("something");
+    displayedTasks.value = tasks.value;
+  }
+  if (viewTaskOption.value === "completed") {
+    // console.log("completed tasks");
+    displayedTasks.value = tasks.value;
+    displayedTasks.value = completedTasks.value;
+    console.log(displayedTasks.value);
+  }
+  if (viewTaskOption.value === "pending") {
+    displayedTasks.value = uncompletedTasks.value;
+  }
+};
+
+/* onUpdated(() => {
   getTasks();
-});
+}); */
 
 //Connect to supabase to mark task as complete
 const completeTaskData = async (taskObject) => {
@@ -62,7 +108,9 @@ const completeTaskData = async (taskObject) => {
   // console.log(taskObject.id);
   let changeTaskBool = !taskObject.is_complete;
   let taskId = taskObject.id;
+  //Add setTimeout or set interval to wait a few seconds before completed task dissapears
   await taskStore.taskCompleted(taskId, changeTaskBool);
+  getTasks();
 };
 
 //Function to send edit task back to database

@@ -43,6 +43,9 @@ const showErrorMessage = ref(false);
 // const constant to save a variable that holds the value of the error message
 const errorMessage = ref(null);
 
+//Emit to refresh getTasks when new tasks are added
+const emit = defineEmits(["refreshTasks"]);
+
 // Arrow function para crear tareas.
 const addTask = () => {
   if (name.value.length === 0 || description.value.length === 0) {
@@ -57,6 +60,7 @@ const addTask = () => {
     taskStore.addTask(name.value, description.value);
     name.value = "";
     description.value = "";
+    emits("refreshTasks");
   }
 };
 

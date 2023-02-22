@@ -8,12 +8,16 @@ import { useUserStore } from "./user";
 
 export const useTaskStore = defineStore("tasks", () => {
   const tasksArr = ref(null);
+  const completeArr = ref(null);
+  const incompleteArr = ref(null);
   const fetchTasks = async () => {
     const { data: tasks } = await supabase
       .from("tasks")
       .select("*")
       .order("id", { ascending: false });
     tasksArr.value = tasks;
+    completeArr.value = tasks.filter((task) => task.is_complete);
+    incompleteArr.value = tasks.filter((task) => !task.is_complete);
     return tasksArr.value;
   };
   
@@ -55,5 +59,5 @@ export const useTaskStore = defineStore("tasks", () => {
       id: id,
     });
   };
-  return  {fetchTasks, addTask, deleteTask, tasksArr, taskCompleted, editTask}
+  return  {fetchTasks, addTask, deleteTask, tasksArr, taskCompleted, editTask, completeArr, incompleteArr}
 });
