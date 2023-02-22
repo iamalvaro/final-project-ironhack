@@ -207,16 +207,21 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 - [x] Create functioning Task categories
 - [ ] Start deadline feature
-- [ ] Fix footer issues
+- [x] Fix footer issues ?
 - [x] Fix cursor on action icons
 - [x] Add link to nav logo
+- [x] Fix issues with avatar
+- [x] Fix issue with tasks not refreashing
 
 #### Day Thirteen
 
 ###### Thursday 23, Febrero 2023
 
-- [ ] Fix issues with avatar
-- [ ] Fix issue with tasks not refreashing
+- [ ] By default pending
+- [ ] Make a task dissapear when its complete?
+- [ ] Modal for sign up
+- [ ] Total task & pending count in account
+- [ ] Start deadline feature
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
