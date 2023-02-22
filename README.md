@@ -205,11 +205,18 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Wednesday 22, Febrero 2023
 
-- [ ] Create functioning Task categories
+- [x] Create functioning Task categories
 - [ ] Start deadline feature
 - [ ] Fix footer issues
 - [x] Fix cursor on action icons
 - [x] Add link to nav logo
+
+#### Day Thirteen
+
+###### Thursday 23, Febrero 2023
+
+- [ ] Fix issues with avatar
+- [ ] Fix issue with tasks not refreashing
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

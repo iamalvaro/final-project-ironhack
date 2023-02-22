@@ -201,7 +201,7 @@ button {
   position: relative;
 }
 .show-pw {
-  z-index: 9999;
+  z-index: 9;
 	position: absolute;
 	top: 30%;
 	right: 1rem;
@@ -505,6 +505,7 @@ button {
       z-index: 1;
       right: 0;
       border-radius: 0 0 2rem 2rem;
+      cursor: pointer;
     }
     /* Links inside the dropdown */
     .dropdown-items a {
@@ -655,6 +656,11 @@ button {
   }
   .image-container {
     margin: 0 0 1rem 0;
+  }
+  nav {
+    
+    padding: 0 3.5rem 1rem;
+    
   }
 
 }

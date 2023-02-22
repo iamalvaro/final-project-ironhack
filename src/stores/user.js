@@ -80,6 +80,9 @@ export const useUserStore = defineStore("user", {
       if (newWebsite === null){
         newWebsite = this.profile.website;
       }
+      if (newAvatar === null){
+        newAvatar = this.profile.image_src;
+      }
       const {data: profile, error} = await supabase
       .from('profiles')
       .update({

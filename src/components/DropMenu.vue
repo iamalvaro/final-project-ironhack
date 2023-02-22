@@ -12,13 +12,16 @@
           alt="Profile picture"
         />
         <p class="nav-account-name">
-          {{ username ? username : username.split("@")[0] }}
+          <!-- {{ username ? username : username.split("@")[0] }} -->
+          {{
+            username.length > 12 ? username.substring(0, 12) + "..." : username
+          }}
         </p>
       </div>
       <div class="dropdown-items">
         <router-link to="/"> Home </router-link>
         <router-link to="/account">Your Account</router-link>
-        <router-link to="/"> Complete Tasks </router-link>
+        <a @click="() => completedTasks('completed')"> Complete Tasks </a>
         <button @click="signOut">Logout</button>
       </div>
     </div>
@@ -45,6 +48,14 @@ async function getAvatar() {
   avatar_url.value = URL.createObjectURL(data);
 }
 getAvatar();
+
+//Link to completed tasks view
+
+const emit = defineEmits(["viewCompleted"]);
+
+const completedTasks = (viewValue) => {
+  emit("viewCompleted", viewValue);
+};
 
 // constant to save a variable that will get the user from store with a computed function imported from vue
 const username = ref("");

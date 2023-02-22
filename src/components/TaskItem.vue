@@ -96,7 +96,7 @@ const props = defineProps({
 });
 
 // Emits to send info to the parent components
-const emit = defineEmits(["taskItemComplete", "editTask"]);
+const emit = defineEmits(["taskItemComplete", "editTask", "refreshTasks"]);
 
 //Short title for display purposes
 
@@ -158,6 +158,7 @@ const setTaskComplete = () => {
     completeIcon.value = !completeIcon.value;
   }
 };
+//Emits to refresh tasks when one is deleted
 
 //DELETE TASK ITEM
 const deleteToggle = ref(false);
@@ -175,6 +176,7 @@ const deleteTask = async () => {
 const deleteTaskTest = async () => {
   await taskStore.deleteTask(props.task.id);
   deleteToggle.value = !deleteToggle.value;
+  emit("refreshTasks");
 };
 
 // CLOSE MODAL FROM DELETWARNING EMITTED EVENT WITH INFO STORING A FALSE VALUE TO PASS ON TO THE deleteToggle variable.

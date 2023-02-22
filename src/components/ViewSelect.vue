@@ -1,24 +1,7 @@
 <template>
-  <!-- <div class="view-select">
-    <select
-      class="select-options"
-      v-model="selectView"
-      id="task-priority"
-      @click="sendViewOption"
-    >
-      <option class="options hide" selected>View:</option>
-      <option class="options" value="all">All</option>
-      <option class="options" value="pending">Pending</option>
-      <option class="options" value="completed">Completed</option>
-
-      <p @click="() => sendViewOption2('all')">All</p>
-    </select>
-  </div> -->
-
   <div class="view-select" ref="viewSelect">
-    <div class="header-content">
-      <i class="fa-solid fa-binoculars"></i>
-    </div>
+    <i class="fa-solid fa-binoculars"></i>
+
     <div class="dropdown-views">
       <option @click="() => sendViewOption('all')" value="all">All</option>
       <option @click="() => sendViewOption('completed')" value="completed">
@@ -57,18 +40,14 @@ const selectView = ref([]);
 const sendViewOption = (viewValue) => {
   emit("viewTaskOption", viewValue);
 };
-
-/* const sendViewOption2 = (valor) => {
-  //console.log(selectView.value);
-  //console.log("clickes");
-  emit("viewTaskOption", valor);
-}; */
 </script>
 
 <style scoped>
 .view-select {
   position: fixed;
-  left: 1.2rem;
+  /* width: 3rem;
+  height: 3rem; */
+  left: 1rem;
   top: 4rem;
   cursor: pointer;
   user-select: none;
@@ -79,23 +58,25 @@ const sendViewOption = (viewValue) => {
   color: var(--colorLightGrey);
   padding: 1rem;
   opacity: 0.9;
-  transition: 0.15s;
+  transition: 0.3s;
   display: none;
 }
 .show-view {
   display: inline-block;
 }
 .view-select:hover {
+  width: 10rem;
+  height: 15rem;
   border-radius: 3rem;
   color: var(--colorGreen);
   background-color: var(--colorBrokenWhite);
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   opacity: 0.9;
 }
-.header-content {
+.fa-binoculars {
   font-size: 2.5rem;
 }
-.view-select:hover .header-content {
+.view-select:hover .fa-binoculars {
   display: none;
 }
 /* Dropdown Content (Hidden by Default) */

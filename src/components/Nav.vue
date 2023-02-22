@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
+    <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link" /> -->
     <div id="navbar-logo">
       <!-- <router-link to="/"> -->
       <img src="../../public/checked.png" alt="logo" class="app-logo-nav" />
@@ -8,7 +8,7 @@
       <!-- </router-link> -->
     </div>
 
-    <DropMenu />
+    <DropMenu @view-completed="relayCompleted" />
   </nav>
 </template>
 
@@ -22,15 +22,18 @@ import DropMenu from "./DropMenu.vue";
 
 const userStore = useUserStore();
 
+//Send emit from dropdown to Home
+
+const emit = defineEmits(["viewCompleted"]);
+
+const relayCompleted = (viewValue) => {
+  emit("viewCompleted", viewValue);
+};
+
 //constant to save a variable that will hold the use router method
 
 const route = "/";
 const buttonText = "Todo app";
-
-// constant to save a variable that will get the user from store with a computed function imported from vue
-// const getUser = computed(() => useUserStore().user);
-
-// const getUser = computed(() => useUserStore().user);
 
 const username = ref("");
 
