@@ -2,14 +2,12 @@
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
     <div id="navbar-logo">
+      <!-- <router-link to="/"> -->
       <img src="../../public/checked.png" alt="logo" class="app-logo-nav" />
       <h3>TaskPro</h3>
+      <!-- </router-link> -->
     </div>
-    <!-- <router-link to="/"> Home </router-link>
 
-    <router-link to="/">Task Manager</router-link>
-
-    <router-link to="/account">Your Account</router-link> -->
     <DropMenu />
   </nav>
 </template>

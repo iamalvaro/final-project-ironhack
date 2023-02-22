@@ -47,7 +47,7 @@ const getTasks = async () => {
 
   uncompletedTasks.value = tasks.value.filter((task) => !task.is_complete);
 
-  // console.log(uncompletedTasks.value, completedTasks.value);
+  console.log(uncompletedTasks.value, completedTasks.value);
 };
 
 getTasks();

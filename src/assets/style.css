@@ -71,7 +71,7 @@ textarea + span {
   padding: 0 .25rem;
   background: var(--colorBrokenWhite);
   color: var(--colorLightGrey);
-  /* font-family: sans-serif; */
+  
   line-height: 1.75rem;
   transition: top .15s;
   cursor: pointer;
@@ -83,7 +83,7 @@ input + span {
   padding: 0 .25rem;
   background: var(--colorBrokenWhite);
   color: var(--colorLightGrey);
-  /* font-family: sans-serif; */
+  
   line-height: 1.75rem;
   transition: top .15s;
   cursor: pointer;
@@ -260,7 +260,8 @@ button {
 }
 /* Tasks */
 .task-wrapper {
-  margin: 0 1rem;
+  margin: 0 5rem;
+  min-height: 100vh;  
 }
 .task-background-default {
   background-color: var(--colorBrokenWhite);
@@ -308,8 +309,6 @@ button {
   overflow-wrap: break-word;
   min-width: 0;
   font-size: 1.5rem;
-  /* user-select: none; */
-
   }
 .task-description {
   margin: 1em 0 1em 1rem;
@@ -328,18 +327,10 @@ button {
 .actions {
   display: flex;  
   width: 80%;
-  /* align-items: center; */
-  /* justify-content: space-around; */
-  /* align-content: flex-start; */
 }
 .action-icon {
  margin: 2rem auto;
- /* align-self: flex-end; */
- /* display: flex;
- align-content: flex-end;
- align-items: flex-end;
- justify-content: center; */
-
+ cursor: pointer;
 }
 .check:hover, .edit:hover, .delete:hover {
   text-shadow: var(--colorLightGrey) 1px 1px;
@@ -361,6 +352,7 @@ button {
 }
 .disabled {
   color: var(--colorLightGrey);
+  cursor: default;
 }
 
 .action-icon > i {
@@ -441,6 +433,7 @@ button {
   display: flex;
   align-items: center;
   margin: 0 0.5rem 0 0;  
+  user-select: none;
 
 }
 #navbar-logo > h3 {
@@ -448,7 +441,9 @@ button {
   font-size: 2rem;
   color: white;
   text-shadow: black 4px 4px;
-  
+  /* text-decoration: none;
+  display: inline;
+   */
 
 }
 .app-logo-nav {
@@ -456,6 +451,7 @@ button {
     width: 3rem;
     margin: 1rem 0 0.5rem 0;  
     width: 60px;
+    
     
   }  
   nav {
@@ -525,6 +521,7 @@ button {
       border-color: var(--colorRed);
       color: var(--colorRed);
       cursor: pointer;
+      transition: 0.3s;
     }
     .dropdown-items button:hover {
       background-color: var(--colorRed);
@@ -623,7 +620,7 @@ button {
   }
   /* Larger width of task item when screen is small */
   .task-container {
-    width: 55vw;
+    width: 50vw;
    }
    .task-description-container {
     grid-template-columns: 17rem minmax(0, 1fr); 

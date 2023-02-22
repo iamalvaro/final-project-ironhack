@@ -11,7 +11,9 @@
           "
           alt="Profile picture"
         />
-        <p class="nav-account-name">{{ username }}</p>
+        <p class="nav-account-name">
+          {{ username ? username : userEmail.split("@")[0] }}
+        </p>
       </div>
       <div class="dropdown-items">
         <router-link to="/"> Home </router-link>

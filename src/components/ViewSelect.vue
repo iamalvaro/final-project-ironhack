@@ -17,7 +17,7 @@ import { onMounted, ref, onBeforeMount } from "vue";
 const viewSelect = ref();
 
 const showOnScroll = () => {
-  if (window.scrollY > 150) {
+  if (window.scrollY > 250) {
     viewSelect.value.classList.add("show-view");
   } else {
     viewSelect.value.classList.remove("show-view");
@@ -55,10 +55,9 @@ onBeforeMount(() => {
 .view-select:hover {
   border-radius: 3rem;
   color: var(--colorGreen);
-  border: 2px solid var(--colorGreen);
   background-color: var(--colorBrokenWhite);
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .header-content {
   font-size: 2.5rem;

@@ -196,6 +196,6 @@ const errorMsg = ref("");
 .task-background-completed {
   background-color: rgba(130, 238, 130, 0.7);
 
-  color: var(--colorLightGrey);
+  /* color: var(--colorLightGrey); */
 }
 </style>

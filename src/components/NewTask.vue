@@ -22,7 +22,6 @@
     </div>
     <template v-if="deadlineToggle">
       <input class="deadline-date" type="date" min="{{ date }}" />
-      <span class="check-style"></span>
     </template>
     <button @click="addTask" class="create-button">Add Task</button>
   </div>

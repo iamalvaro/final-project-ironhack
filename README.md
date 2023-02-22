@@ -198,7 +198,18 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Display avatar image in profile and dropdown menu
 - [x] Change account avatar button distribution
 - [x] Block action buttons when other is activated
+- [x] Create component to change between task category
 - [ ] Look into creating Complete Task category
+
+#### Day Twelve
+
+###### Wednesday 22, Febrero 2023
+
+- [ ] Create functioning Task categories
+- [ ] Start deadline feature
+- [ ] Fix footer issues
+- [x] Fix cursor on action icons
+- [x] Add link to nav logo
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

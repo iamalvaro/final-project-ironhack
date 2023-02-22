@@ -13,6 +13,7 @@ const year = new Date().getFullYear();
   background-color: #303030;
   display: flex;
   bottom: 0;
+  /* position: sticky; */
   /* min-height: 10vh; */
   justify-content: space-around;
   align-items: center;
