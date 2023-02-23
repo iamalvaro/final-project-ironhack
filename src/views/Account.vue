@@ -1,5 +1,6 @@
 <template>
   <Nav />
+  <button @click="scrollToBottom"></button>
   <div class="account-container">
     <div class="account-container-row">
       <div class="image-container">
@@ -162,10 +163,8 @@ getTaskCount();
 
 const scrollToBottom = () => {
   profileEditToggle.value = !profileEditToggle.value;
-  window.scrollTo({
-    bottom: 0,
-    behavior: "smooth",
-  });
+
+  window.scrollTo(0, document.body.scrollHeight);
 };
 
 //Edit profile toggle

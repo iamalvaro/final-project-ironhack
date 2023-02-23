@@ -434,7 +434,9 @@ button {
   align-items: center;
   margin: 0 0.5rem 0 0;  
   user-select: none;
-
+}
+.logo-link {
+  text-decoration: none; 
 }
 #navbar-logo > h3 {
   margin: 0 0 -1.8rem -0.8rem;

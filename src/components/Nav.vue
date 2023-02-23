@@ -1,12 +1,12 @@
 <template>
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link" /> -->
-    <div id="navbar-logo">
-      <!-- <router-link to="/"> -->
-      <img src="../../public/checked.png" alt="logo" class="app-logo-nav" />
-      <h3>TaskPro</h3>
-      <!-- </router-link> -->
-    </div>
+    <a href="/" class="logo-link">
+      <div id="navbar-logo">
+        <img src="../../public/checked.png" alt="logo" class="app-logo-nav" />
+        <h3>TaskPro</h3>
+      </div>
+    </a>
 
     <DropMenu @view-completed="relayCompleted" />
   </nav>

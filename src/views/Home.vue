@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <Nav @view-completed="sortTasks" />
+    <ViewSelect @view-task-option="sortTasks" />
     <div class="add-task-wrapper">
       <NewTask @refreshTasks="getTasks" />
-      <ViewSelect @view-task-option="sortTasks" />
     </div>
     <div v-if="displayedTasks.length === 0">
       <Welcome />
@@ -41,7 +41,7 @@ const tasks = ref([]);
 const completedTasks = ref([]);
 const uncompletedTasks = ref([]);
 const displayedTasks = ref([]);
-const viewTaskOption = ref("pending");
+const viewTaskOption = ref("");
 
 // funcion conectada a un custom event que viene de el ocmp viewSelect apra recibir info de la prioridad de la tarea
 
@@ -58,7 +58,7 @@ const getTasks = async () => {
   tasks.value = taskStore.tasksArr;
   completedTasks.value = taskStore.completeArr;
   uncompletedTasks.value = taskStore.incompleteArr;
-  sortTasks("all");
+  sortTasks("pending");
   // console.log(uncompletedTasks.value, completedTasks.value);
 };
 
@@ -90,11 +90,13 @@ const sortTasks = (option) => {
 const completeTaskData = async (taskObject) => {
   console.log("click");
   // console.log(taskObject.id);
-  let changeTaskBool = !taskObject.is_complete;
+  let changeTaskBool = taskObject.is_complete;
   let taskId = taskObject.id;
   //Add setTimeout or set interval to wait a few seconds before completed task dissapears
   await taskStore.taskCompleted(taskId, changeTaskBool);
-  getTasks();
+  setTimeout(() => {
+    getTasks();
+  }, 2000);
 };
 
 //Function to send edit task back to database

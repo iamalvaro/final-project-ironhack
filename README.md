@@ -217,10 +217,12 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ###### Thursday 23, Febrero 2023
 
-- [ ] By default pending
-- [ ] Make a task dissapear when its complete?
+- [x] By default pending
+- [x] Make a task dissapear when its complete
 - [ ] Modal for sign up
-- [ ] Total task & pending count in account
+- [x] Total task & pending count in account
+- [x] Welcome screen when no tasks
+- [x] Re-do account edit layout
 - [ ] Start deadline feature
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

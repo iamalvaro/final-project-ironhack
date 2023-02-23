@@ -154,6 +154,7 @@ const setTaskComplete = () => {
   if (editToggle.value) {
     return null;
   } else {
+    props.task.is_complete = !props.task.is_complete;
     emit("taskItemComplete", props.task);
     completeIcon.value = !completeIcon.value;
   }
