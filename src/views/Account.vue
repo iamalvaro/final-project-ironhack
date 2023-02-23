@@ -34,8 +34,12 @@
         <h3 class="profile-details">{{ userEmail }}</h3>
         <h3 class="profile-details-heading">Website:</h3>
         <h3 class="profile-details">{{ website }}</h3>
+        <h3 class="profile-details-heading">Total Tasks:</h3>
+        <h3 class="profile-details">{{ totalCount.length }}</h3>
         <h3 class="profile-details-heading">Complete Tasks:</h3>
         <h3 class="profile-details">{{ completedCount.length }}</h3>
+        <h3 class="profile-details-heading">Pending Tasks:</h3>
+        <h3 class="profile-details">{{ pendingCount.length }}</h3>
       </div>
     </div>
     <button
@@ -125,13 +129,17 @@ getEmail();
 //Logic to bring complete task count
 // defineProps({ completeCount: string });
 
+const totalCount = ref([]);
 const completedCount = ref([]);
+const pendingCount = ref([]);
 
-const getCompletedCount = async () => {
+const getTaskCount = async () => {
   await taskStore.fetchTasks();
+  totalCount.value = taskStore.tasksArr;
   completedCount.value = taskStore.completeArr;
+  pendingCount.value = taskStore.incompleteArr;
 };
-getCompletedCount();
+getTaskCount();
 
 //Edit profile toggle
 
