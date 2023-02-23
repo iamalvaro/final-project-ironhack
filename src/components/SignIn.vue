@@ -6,6 +6,7 @@
     <div class="sign-header">
       <h3 class="header-title">Log In to TaskPro</h3>
       <p class="header-subtitle">Enter your details to access your tasks</p>
+      <p v-if="showConfirmText" class="confirm-text">{{ confirmEmailText }}</p>
     </div>
     <form @submit.prevent="signIn" class="form-sign-in">
       <div class="form">
@@ -70,6 +71,19 @@ const buttonText = "Sign Up";
 const errorMsg = ref("");
 const redirect = useRouter();
 
+//Confirm email reminder
+const confirmEmailText = ref(
+  "Please remember to confirm your email if you just signed up"
+);
+const showConfirmText = ref(true);
+
+const hideConfirmText = () => {
+  setTimeout(() => {
+    showConfirmText.value = false;
+  }, 8000);
+};
+hideConfirmText();
+
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
   try {
@@ -91,6 +105,13 @@ const showPassword = () => {
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600&family=Roboto:wght@100;300;400;700&display=swap");
+
+.confirm-text {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  width: 15rem;
+  color: var(--colorGreen);
+}
 </style>

@@ -1,6 +1,5 @@
 <template>
   <Nav />
-  <button @click="scrollToBottom"></button>
   <div class="account-container">
     <div class="account-container-row">
       <div class="image-container">
@@ -35,23 +34,22 @@
         <h3 class="profile-details">{{ pendingCount.length }}</h3>
       </div>
     </div>
-    <form action="#last-stop">
-      <button
-        v-if="profileEditToggle === true"
-        class="edit-profil-btn discard-changes"
-        @click="discardEdit"
-      >
-        Discard Changes
-      </button>
-      <button
-        v-else
-        class="edit-profil-btn"
-        href="#submit"
-        @click="scrollToBottom"
-      >
-        Edit Profile
-      </button>
-    </form>
+    <button
+      v-if="profileEditToggle === true"
+      class="edit-profil-btn discard-changes"
+      @click="discardEdit"
+    >
+      Discard Changes
+    </button>
+    <button
+      v-else
+      class="edit-profil-btn"
+      href="#submit"
+      @click="scrollToBottom"
+    >
+      Edit Profile
+    </button>
+
     <template class="edit-profile" v-if="profileEditToggle">
       <div class="img-edit">
         <img
@@ -83,10 +81,8 @@
           <input v-model="newWebsite" type="text" required />
           <span>Website</span>
         </label>
-        <button id="submit" ref="lastElement" @click="submitProfileChanges">
-          Submit Changes
-        </button>
-        <div id="last-stop"></div>
+        <button @click="submitProfileChanges">Submit Changes</button>
+        <!-- <div id="last-stop"></div> -->
       </div>
     </template>
   </div>
@@ -96,7 +92,7 @@
 
 <script setup>
 import { supabase } from "../supabase";
-import { onMounted, ref, toRefs, updated } from "vue";
+import { onMounted, ref } from "vue";
 import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
@@ -161,14 +157,11 @@ const getTaskCount = async () => {
 getTaskCount();
 
 //Scroll down when edit profile
-const lastElement = ref();
-
 const scrollToBottom = () => {
   profileEditToggle.value = !profileEditToggle.value;
-  // onUpdated(() => {
-  //   window.scrollTo(0, document.body.scrollHeight);
-  // });
-  lastElement.scrollIntoView();
+
+  // window.scrollTo(0, document.body.scrollHeight);
+  document.querySelector("#last-stop").scrollIntoView();
 };
 
 //Discard Edit changes

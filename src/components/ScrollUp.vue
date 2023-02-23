@@ -37,7 +37,7 @@ const scrollToTop = () => {
   width: 2.5rem;
   height: 2.5rem;
   bottom: 5rem;
-  right: 1.5rem;
+  right: 1rem;
   position: fixed;
   font-size: 2.5rem;
   color: var(--colorLightGrey);
