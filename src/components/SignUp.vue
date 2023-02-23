@@ -56,7 +56,9 @@
           </label>
         </div>
         <div class="form-input">
-          <button class="button" type="submit">Sign Up</button>
+          <button class="button" type="submit" @click="confirmModalActivate">
+            Sign Up
+          </button>
         </div>
         <div class="go-to-other-sign">
           <p>
@@ -73,6 +75,9 @@
 
     <div class="error-text" v-show="errorMsg">{{ errorMsg }}</div>
   </div>
+  <template v-if="confirmModalToggle">
+    <ConfirmModal @close-confirm-modal="closeModalParent" />
+  </template>
 </template>
 
 <script setup>
@@ -82,6 +87,18 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+import ConfirmModal from "./ConfirmModal.vue";
+
+//confirm email modal
+const confirmModalToggle = ref(false);
+
+const confirmModalActivate = () => {
+  confirmModalToggle.value = !confirmModalToggle.value;
+};
+//Close modal from emit
+const closeModalParent = (boolValue) => {
+  confirmModalToggle.value = boolValue;
+};
 
 // Route Variables
 const route = "/auth/login";
