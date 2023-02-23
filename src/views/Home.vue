@@ -5,6 +5,9 @@
       <NewTask @refreshTasks="getTasks" />
       <ViewSelect @view-task-option="sortTasks" />
     </div>
+    <div v-if="displayedTasks.length === 0">
+      <Welcome />
+    </div>
     <div class="task-wrapper">
       <TaskItem
         v-for="task in displayedTasks"
@@ -30,6 +33,7 @@ import TaskItem from "../components/TaskItem.vue";
 import TaskFooter from "../components/TaskFooter.vue";
 import ScrollUp from "../components/ScrollUp.vue";
 import ViewSelect from "../components/ViewSelect.vue";
+import Welcome from "../components/Welcome.vue";
 const taskStore = useTaskStore();
 
 // Variable para guardar las tareas de supabase

@@ -261,7 +261,7 @@ button {
 /* Tasks */
 .task-wrapper {
   margin: 0 5rem;
-  min-height: 100vh;  
+  min-height: 10vh;  
 }
 .task-background-default {
   background-color: var(--colorBrokenWhite);

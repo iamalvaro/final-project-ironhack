@@ -21,7 +21,12 @@
       <input @click="showDeadline" class="deadline-checkbox" type="checkbox" />
     </div>
     <template v-if="deadlineToggle">
-      <input class="deadline-date" type="date" min="{{ date }}" />
+      <input
+        class="deadline-date"
+        type="date"
+        min="{{ date }}"
+        v-model="setDeadline"
+      />
     </template>
     <button @click="addTask" class="create-button">Add Task</button>
   </div>
@@ -36,6 +41,7 @@ const taskStore = useTaskStore();
 // variables para los valors de los inputs
 const name = ref("");
 const description = ref("");
+const setDeadline = ref();
 
 // constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
 const showErrorMessage = ref(false);
@@ -58,6 +64,7 @@ const addTask = async () => {
   } else {
     // Aquí mandamos los valores a la store para crear la nueva Task. Esta parte de la función tenéis que refactorizarla para que funcione con emit y el addTask del store se llame desde Home.vue.
     await taskStore.addTask(name.value, description.value);
+    // setDeadline.value = "";
     name.value = "";
     description.value = "";
     emit("refreshTasks");
@@ -72,7 +79,7 @@ const showDeadline = () => {
 
 //Date to determine minumum date possible in date picker input
 const date = new Date();
-console.log(date);
+// console.log(date);
 </script>
 
 <style></style>

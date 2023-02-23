@@ -45,7 +45,7 @@
     </form>
     <div class="go-to-other-sign">
       <p>
-        Dont have an account?
+        Don't have an account?
         <PersonalRouter
           :route="route"
           :buttonText="buttonText"
