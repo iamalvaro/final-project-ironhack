@@ -187,7 +187,7 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 ###### Monday 20, Febrero 2023
 
 - [x] Change Sign in & sign up sizing
-- [x] Add show password icon and functionality
+- [x] Add show password icon and functionality to sign in
 - [x] Show username on dropdown menu
 - [x] Upload image to database
 
@@ -224,6 +224,8 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 - [x] Welcome screen when no tasks
 - [x] Re-do account edit layout
 - [ ] Start deadline feature
+- [x] Add animated inputs to sign up
+- [x] Add show password to sign up
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

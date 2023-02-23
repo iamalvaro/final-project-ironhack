@@ -13,14 +13,6 @@
           "
           alt="Profile picture"
         />
-        <!-- <template class="edit-profile" v-if="profileEditToggle">
-          <input
-            type="file"
-            accept=".jpg,.png,.gif"
-            class="solo-btn"
-            @change="uploadAvatar"
-          />
-        </template> -->
       </div>
       <div class="account-details">
         <h3 class="profile-details-heading">Username:</h3>
@@ -43,16 +35,23 @@
         <h3 class="profile-details">{{ pendingCount.length }}</h3>
       </div>
     </div>
-    <button
-      v-if="profileEditToggle === true"
-      class="edit-profil-btn discard-changes"
-      @click="activateEditProfile"
-    >
-      Discard Changes
-    </button>
-    <button v-else class="edit-profil-btn" @click="scrollToBottom">
-      Edit Profile
-    </button>
+    <form action="#last-stop">
+      <button
+        v-if="profileEditToggle === true"
+        class="edit-profil-btn discard-changes"
+        @click="discardEdit"
+      >
+        Discard Changes
+      </button>
+      <button
+        v-else
+        class="edit-profil-btn"
+        href="#submit"
+        @click="scrollToBottom"
+      >
+        Edit Profile
+      </button>
+    </form>
     <template class="edit-profile" v-if="profileEditToggle">
       <div class="img-edit">
         <img
@@ -84,8 +83,10 @@
           <input v-model="newWebsite" type="text" required />
           <span>Website</span>
         </label>
-        <label> </label>
-        <button @click="submitProfileChanges">Submit Changes</button>
+        <button id="submit" ref="lastElement" @click="submitProfileChanges">
+          Submit Changes
+        </button>
+        <div id="last-stop"></div>
       </div>
     </template>
   </div>
@@ -95,7 +96,7 @@
 
 <script setup>
 import { supabase } from "../supabase";
-import { onMounted, ref, toRefs } from "vue";
+import { onMounted, ref, toRefs, updated } from "vue";
 import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
@@ -160,12 +161,25 @@ const getTaskCount = async () => {
 getTaskCount();
 
 //Scroll down when edit profile
+const lastElement = ref();
 
 const scrollToBottom = () => {
   profileEditToggle.value = !profileEditToggle.value;
-
-  window.scrollTo(0, document.body.scrollHeight);
+  // onUpdated(() => {
+  //   window.scrollTo(0, document.body.scrollHeight);
+  // });
+  lastElement.scrollIntoView();
 };
+
+//Discard Edit changes
+const discardEdit = () => {
+  newUsername.value = "";
+  newName.value = "";
+  newWebsite.value = "";
+
+  profileEditToggle.value = !profileEditToggle.value;
+};
+// @click="activateEditProfile"
 
 //Edit profile toggle
 
@@ -208,7 +222,6 @@ const uploadAvatar = async (e) => {
     throw new Error("Please select nad image to upload");
   }
   const file = files[0];
-  //Batucada.png -> .png
   const fileExt = file.name.split(".").pop();
   const filePath = `${Math.random()}.${fileExt}`;
 

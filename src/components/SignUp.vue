@@ -9,34 +9,51 @@
     <form @submit.prevent="signUp" class="form-sign-in">
       <div class="form">
         <div class="form-input">
-          <input
-            type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
-          />
+          <label>
+            <input
+              type="email"
+              class="input-field"
+              id="email"
+              v-model="email"
+              required
+            />
+            <span>Email</span>
+          </label>
         </div>
         <div class="form-input">
-          <input
-            type="password"
-            class="input-field"
-            placeholder="Enter password"
-            id="password"
-            v-model="password"
-            required
-          />
+          <label>
+            <input
+              :type="passwordToggle ? 'text' : 'password'"
+              class="input-field"
+              id="password"
+              v-model="password"
+              required
+            />
+            <span>Password</span>
+            <span @click="showPassword" class="show-pw"
+              ><i v-if="passwordToggle" class="fa-solid fa-eye-slash"></i>
+              <i v-else class="fa-solid fa-eye"></i
+            ></span>
+          </label>
         </div>
         <div class="form-input">
-          <input
-            type="password"
-            class="input-field"
-            placeholder="Confirm password"
-            id="confirmPassword"
-            v-model="confirmPassword"
-            required
-          />
+          <label>
+            <input
+              :type="confirmPasswordToggle ? 'text' : 'password'"
+              class="input-field"
+              id="confirmPassword"
+              v-model="confirmPassword"
+              required
+            />
+            <span>Confirm Password</span>
+            <span @click="showconfirmPassword" class="show-pw"
+              ><i
+                v-if="confirmPasswordToggle"
+                class="fa-solid fa-eye-slash"
+              ></i>
+              <i v-else class="fa-solid fa-eye"></i
+            ></span>
+          </label>
         </div>
         <div class="form-input">
           <button class="button" type="submit">Sign Up</button>
@@ -80,6 +97,17 @@ const errorMsg = ref("");
 
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
+
+//Show or hide password
+const passwordToggle = ref(false);
+const showPassword = () => {
+  passwordToggle.value = !passwordToggle.value;
+};
+//Show or hide confirm password
+const confirmPasswordToggle = ref(false);
+const showconfirmPassword = () => {
+  confirmPasswordToggle.value = !confirmPasswordToggle.value;
+};
 
 // Arrow function to SignUp user to supaBase with a timeOut() method for showing the error
 const signUp = async () => {
