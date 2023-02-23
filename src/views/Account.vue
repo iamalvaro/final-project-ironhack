@@ -12,14 +12,14 @@
           "
           alt="Profile picture"
         />
-        <template class="edit-profile" v-if="profileEditToggle">
+        <!-- <template class="edit-profile" v-if="profileEditToggle">
           <input
             type="file"
             accept=".jpg,.png,.gif"
             class="solo-btn"
             @change="uploadAvatar"
           />
-        </template>
+        </template> -->
       </div>
       <div class="account-details">
         <h3 class="profile-details-heading">Username:</h3>
@@ -44,15 +44,32 @@
     </div>
     <button
       v-if="profileEditToggle === true"
-      class="edit-profil-btn"
+      class="edit-profil-btn discard-changes"
       @click="activateEditProfile"
     >
       Discard Changes
     </button>
-    <button v-else class="edit-profil-btn" @click="activateEditProfile">
+    <button v-else class="edit-profil-btn" @click="scrollToBottom">
       Edit Profile
     </button>
     <template class="edit-profile" v-if="profileEditToggle">
+      <div class="img-edit">
+        <img
+          class="edit-profile-img"
+          :src="
+            avatar_url
+              ? avatar_url
+              : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
+          "
+          alt="Profile picture"
+        />
+        <input
+          type="file"
+          accept=".jpg,.png,.gif"
+          class="solo-btn"
+          @change="uploadAvatar"
+        />
+      </div>
       <div class="edit-profile-form">
         <label>
           <input v-model="newUsername" type="text" required />
@@ -141,6 +158,16 @@ const getTaskCount = async () => {
 };
 getTaskCount();
 
+//Scroll down when edit profile
+
+const scrollToBottom = () => {
+  profileEditToggle.value = !profileEditToggle.value;
+  window.scrollTo({
+    bottom: 0,
+    behavior: "smooth",
+  });
+};
+
 //Edit profile toggle
 
 const profileEditToggle = ref(false);
@@ -192,8 +219,6 @@ const uploadAvatar = async (e) => {
 
   newAvatar.value = filePath;
 
-  // await userStore.uploadAvatar(newAvatar.value);
-
   const { data, error } = await supabase.storage
     .from("avatars")
     .download(filePath);
@@ -211,6 +236,20 @@ const uploadAvatar = async (e) => {
   align-items: center;
   gap: 2rem;
 }
+.img-edit {
+  display: flex;
+  align-items: center;
+  align-content: flex-end;
+  justify-content: center;
+  margin: 0 0 1.5rem 6rem;
+}
+
+.edit-profile-img {
+  width: 8rem;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
 .solo-btn {
   border: none;
   margin: 0;
@@ -218,8 +257,11 @@ const uploadAvatar = async (e) => {
   color: var(--colorLightGrey);
   width: 70%;
 }
+.discard-changes:hover {
+  color: var(--colorRed);
+  border: 2px solid var(--colorRed);
+}
 input::file-selector-button {
-  /* font-weight: bold; */
   color: var(--colorLightGrey);
   padding: 0.5em;
   border: 2px solid var(--colorLightGrey);
@@ -234,14 +276,4 @@ input::file-selector-button:hover {
 .solo-btn > button {
   border: 2px solid var(--colorLightGrey);
 }
-/* .masked-input {
-  opacity: 0;
-  display: none;
-  position: relative;
-  z-index: 2;
-} */
-/* .mask-input {
-  position: absolute;
-  top: -8px;
-} */
 </style>
