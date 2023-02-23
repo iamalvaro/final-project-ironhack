@@ -3,9 +3,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="./resources/readMe/wu.png" alt="Logo" width="80" height="80">
-  <h3 align="center">Circle Landing Agency Website</h3>
-  <a href="https://midterm-ironhack-ten.vercel.app/">Visit Website</a>
+  <img src="./public/checked.png" alt="Logo" width="80" height="80">
+  <h3 align="center">TaskPro Productivity App</h3>
+  <a href="https://final-project-ironhack-neon.vercel.app/">Visit Website</a>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -40,42 +40,41 @@
 
 ## Acerca del Proyecto
 
-<img src="./resources/readMe/screenshot.png" alt="Logo" width="100%" height="50%">
+<img src="./public/taskpro-screenshot.png" alt="Logo" width="100%" height="50%">
 
-          <h2>Circle Enterprises</h2>
+ <h2>TaskPro</h2>
 
-Pagina de empresa ficticia para poner en practica conocimientos de HTML, CSS y Javascript en su forma nativa
-bibliotecas ni frameworks.
+Este proyecto fue desarrollado como final proyect para un bootcamp de front end de la escuela Ironhack. El objectivo era desarrollar una single page web application capaz de registrar usuarios y ofrecer la funcionabilidad de crear y guardar notas. El objectivo era poner en práctica conocimientos de Vue.js.
 
-La sección "sobre el proyecto" en un archivo README es una sección importante que proporciona información general sobre el objetivo y la funcionalidad del proyecto.
+Tecnologías utilizadas:
 
-En esta sección se puede incluir información como:
+- VUE
+- VUE Router
+- Pinia
+- HTML
+- CSS
+- Supabase
+- JavaScript
+- VsCode
+- Google Chrome DevTools
+- GitHub
+- Vercel
 
-- Una descripción breve del proyecto y su propósito
-- Tecnologías utilizadas
-- Funcionalidades principales
-- Instrucciones de instalación y configuración
-- Enlaces a documentación adicional o recursos relacionados con el proyecto
-- Licencia del proyecto
-- Contribuciones de las personas en el proyecto.
+El proyecto de una single paga web application con que desde el home page expone las tareas guardadas por el usuario. La información del usuario y de las tareas es registrada en Supabase.
 
-En resumen, la sección "sobre el proyecto" es una excelente manera de brindar a los usuarios y contribuidores una visión general del proyecto y proporcionarles toda la información necesaria para comenzar a trabajar con él.
+Desarrollado por Alvaro Fernandez.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Construido Con
 
-La sección "construido con" en un archivo README es una sección que proporciona información sobre las tecnologías y herramientas utilizadas para desarrollar el proyecto.
+Este proyecto fue desarrollado con:
 
-En esta sección se puede incluir información como:
+- HTML
+- CSS
+- Vue.js
 
-- Lenguajes de programación utilizados
-- Frameworks y bibliotecas utilizadas
-- Herramientas de desarrollo (IDE, control de versiones, etc)
-- Servicios en la nube utilizados (si corresponde)
-- Otros recursos o tecnologías relacionadas con el proyecto.
-
-En resumen, la sección "construido con" es una excelente manera de brindar a los usuarios y contribuidores una compresión de las tecnologías y herramientas utilizadas para desarrollar el proyecto, esto ayuda a entender mejor el proyecto y a los desarrolladores a contribuir de manera efectiva.
+Esta web application esta construida con el framework de JavaScript Vue.js en su version mas reciente Vue 3, junto con Vue Router y la biblioteca de Stores Pinia.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -233,24 +232,13 @@ En resumen, la sección "construido con" es una excelente manera de brindar a lo
 
 ## Acerca
 
-La sección "sobre mí" en un archivo README es una sección que proporciona información sobre el desarrollador o equipo detrás del proyecto.
+Alvaro Fernandez - [LinkedIn](https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-%C3%A1lvarez-05243138/)
 
-En esta sección se puede incluir información como:
+Project Link: [Repositorio de GitHub](https://github.com/iamalvaro/final-project-ironhack)
 
-- Nombre y datos de contacto del desarrollador o equipo.
-- Información sobre experiencia laboral o académica relacionada con el proyecto.
-- Enlaces a perfiles en redes sociales o sitios web personales.
-- Otra información relevante que el desarrollador o equipo desee compartir.
+Presentation Link: [GoogleSlides](https://docs.google.com/presentation/d/19BEvSum0caDO4QKsYZPqLwTD6rLWvkk8RzWKGqYQIxs/edit?usp=sharing)
 
-En resumen, la sección "sobre mí" es una excelente manera de brindar a los usuarios y contribuidores una idea de quién está detrás del proyecto y cómo pueden ponerse en contacto con ellos si tienen preguntas o comentarios. Es una buena manera de establecer una conexión con la comunidad de desarrolladores y una forma de mostrar la transparencia en el proyecto.
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-Presentation Link: [Insert here your presentation link](insert-link-here)
-
-Alvaro Fernandez - [LinkedIn]
+Actualmente soy un estudiantes de desarrollo web Frontend en IronHack Barcelona. Antes de empezar este bootcamp habia estudiado a través de Udemy y freeCodeCamp desarrollo web durante medio año.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -258,15 +246,13 @@ Alvaro Fernandez - [LinkedIn]
 
 ## agradecimientos
 
-La sección "agradecimientos" en un archivo README es una sección que proporciona reconocimiento a las personas o instituciones que ayudaron en el desarrollo del proyecto.
+Me gustaria agradecer a IronHack la oportunidad de poder participar en este Bootcamp.
 
-En esta sección se puede incluir información como:
+A nuestro profesor y project manager Diego Zito por su labor docente y motivacion diaria.
 
-- Agradecimientos específicos a personas que ayudaron en el desarrollo del proyecto.
-- Agradecimientos a instituciones o organizaciones que proporcionaron apoyo financiero o recursos.
-- Enlaces a proyectos o recursos relacionados que fueron útiles para el desarrollo del proyecto.
+A los dos excelentes teacher assistants, Aleix y Jarko, por su paciencia y su manera única de provocarnos nuevas formas de ver el codigo y en entenderlo en mayor profundidad.
 
-En resumen, la sección "agradecimientos" es una excelente manera de agradecer a las personas o instituciones que ayudaron en el desarrollo del proyecto. Esta sección también puede ser útil para dar crédito a los recursos o proyectos relacionados que fueron útiles durante el desarrollo.
+Por último me gustaría agradecer a mis compañeros el apoyo que me han ofrecido esta semana de trabajo. Tanto por compartir referencias o consejos técnicos, como por el apoyo anímico, siempre a través del humor
 
 - [Icon Libraries](insert-link-here)
 - [Google Font Libraries](insert-link-here)
@@ -275,26 +261,18 @@ En resumen, la sección "agradecimientos" es una excelente manera de agradecer a
 
 ## Desafío Técnico
 
-La sección "desafío técnico" aunque no es convencional en un proyecto profesional, en nuestro curso dependemos de esta sección en un archivo README para proporcionar información sobre los desafíos técnicos que se enfrentaron durante el desarrollo del proyecto.
+Los principales problemas tecnicos de este proyecto fueron:
 
-En esta sección se puede incluir información como:
+- La comunicación entre los diferentes componentes que comprende la applicación a través de emits y props.
 
-- Problemas técnicos específicos que se encontraron durante el desarrollo del proyecto.
-- Soluciones implementadas para superar estos desafíos.
-- Aspectos del proyecto que aún son un desafío o que requieren mejora continua.
-- Recomendaciones para futuros desarrolladores que trabajen en el proyecto.
+- La comunicación de estos mismos componentes con la base de datos a través de los Stores de Pinia.
 
-En resumen, la sección "desafío técnico" es una excelente manera de brindar a los usuarios y contribuidores una idea de los desafíos técnicos que se enfrentaron durante el desarrollo del proyecto, y cómo se abordaron. Esta sección también puede ser útil para futuros desarrolladores que trabajen en el proyecto, ya que les brinda información valiosa sobre problemas potenciales y soluciones para superarlos.
+- Utilizar metodos propios de Vue como computed y onMount para la manipulación del documento.
 
 ## Grande Error
 
-La sección "grande error" en un archivo README es una sección opcional que proporciona información sobre los errores importantes cometidos durante el desarrollo del proyecto.
+El unico error que persiste en este proyecto es provocado por aplicar conceptos de vanilla JavaScript a Vue.
 
-En esta sección se puede incluir información como:
+En particular DOM manipulation para mantener registro de un componente dentro del documento.
 
-- Descripción detallada del error cometido.
-- Consecuencias del error.
-- Soluciones implementadas para corregir el error.
-- Lecciones aprendidas y recomendaciones para evitar errores similares en el futuro.
-
-En resumen, la sección "grande error" es una forma de ser transparente sobre los errores cometidos durante el desarrollo del proyecto. También puede ser útil para otros desarrolladores que trabajen en el proyecto, ya que les brinda información valiosa sobre problemas potenciales y cómo se abordaron.
+En un futuro intertare crear la misma función a través del metodo compunted y onUpdated.
