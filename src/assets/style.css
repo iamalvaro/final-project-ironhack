@@ -629,9 +629,6 @@ a:visited {
     .nav-account-name {
     display: none;
   }
-  .dropdown {
-    /* max-width: 1rem; */
-  }
   .new-task-heading {
     text-align: center;
   }
