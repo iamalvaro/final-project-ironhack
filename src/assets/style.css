@@ -301,7 +301,6 @@ a:visited {
   display: grid;
   grid-template-columns: 16rem minmax(0, 1fr);  
   overflow-wrap: break-word;
-  min-width: 0;
   font-size: 1.5rem;
   }
 .task-description {
@@ -313,7 +312,8 @@ a:visited {
 }
 .task-date {
   font-size: 1.1rem;
-  color: var(--colorGreen)
+  color: var(--colorGreen);
+  user-select: none;
 }
 
 .task-container input {

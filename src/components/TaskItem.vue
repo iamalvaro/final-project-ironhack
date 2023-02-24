@@ -7,8 +7,8 @@
     "
   >
     <!-- Logic to change classes when to mark task as completed -->
-    <div class="task-heading-container" @click="showDetails">
-      <div class="task-heading">
+    <div class="task-heading-container">
+      <div class="task-heading" @click="showDetails">
         <h3 :class="props.task.is_complete ? 'completed-task' : 'clase1'">
           {{ taskTitleModifier() }}
         </h3>
