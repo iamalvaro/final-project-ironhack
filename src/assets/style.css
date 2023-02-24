@@ -548,7 +548,7 @@ a:visited {
   align-items: center;
   justify-content: center;
   align-content: center;
-  gap: 1rem;    
+  gap: 3rem;    
 }
 .account-details {
   display: grid;
@@ -556,6 +556,7 @@ a:visited {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);  
   column-gap: 0.5rem; 
+ 
 }
 .account-details > h3 {
   padding: 0 0 0.5rem 0;
@@ -618,7 +619,13 @@ a:visited {
   #navbar-logo > h3 {
     font-size: 1.5rem;
   }
- 
+   /* Edit Account change Image and button to column */
+   .img-edit {
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    gap: 1rem;   
+  }
 
   /* view selector ajust size on smallscreen */
   .dropdown-views {
@@ -627,7 +634,7 @@ a:visited {
 
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   /* very small hide username */
     .nav-account-name {
     display: none;

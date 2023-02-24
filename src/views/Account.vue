@@ -246,7 +246,7 @@ const uploadAvatar = async (e) => {
   align-items: center;
   align-content: flex-end;
   justify-content: center;
-  margin: 0 0 1.5rem 6rem;
+  margin: 0 0 1.5rem 0;
 }
 
 .edit-profile-img {
