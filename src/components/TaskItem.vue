@@ -24,10 +24,10 @@
           >
             {{ task.description }}
           </p>
-          <p class="task-date">
-            Start date: {{ task.inserted_at.substring(0, 10) }}
-          </p>
         </div>
+        <p class="task-date">
+          Start date: {{ task.inserted_at.substring(0, 10) }}
+        </p>
       </template>
     </div>
     <div class="actions">
