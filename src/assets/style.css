@@ -54,6 +54,7 @@ textarea {
 } */
 span {
   height: 1rem;
+  user-select: none;
 }
 textarea + span {
   position: absolute;
@@ -61,8 +62,7 @@ textarea + span {
   top: 1.2rem;
   padding: 0 .25rem;
   background: var(--colorBrokenWhite);
-  color: var(--colorLightGrey);
-  
+  color: var(--colorLightGrey);  
   line-height: 1.75rem;
   transition: top .15s;
   cursor: pointer;
@@ -153,15 +153,14 @@ button {
   flex-direction: column;
   align-items: center;
   background-color: var(--colorBrokenWhite);;
-  width: 23rem;
+  width: 18rem;
   height: 90%;
   padding: 1.5rem;
-  margin: 1rem auto;
+  margin: 4rem auto;
   text-align: center;
   border-radius: 1rem;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  
 }
-
 .app-logo {
   border-radius: 0;
   width: 30%;
@@ -170,7 +169,6 @@ button {
 .form-input {
   margin: 1rem auto;
 }
-
 .sign-header {   
     display: flex;
     flex-direction: column;
@@ -183,7 +181,6 @@ button {
     width: 80%;
     margin: -0.5rem 0 0.5rem;
 }
-
 .go-to-other-sign {
   font-size: 0.85rem;
 }
@@ -463,7 +460,7 @@ a:visited {
       display: inline-block;          
       right: 0;
       margin: 0.7rem 0 0 0;
-      min-width: 8rem;
+      min-width: 6rem;
     }
     /* Dropdown Button- Main body div */
     .drop-btn {
@@ -496,7 +493,7 @@ a:visited {
       display: none;
       position: absolute;
       background-color: var(--colorBrokenWhite);
-      min-width: 100%;
+      width: 100%;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1;
       right: 0;
@@ -610,29 +607,40 @@ a:visited {
     grid-template-columns: 22rem; 
     
   }
+ /* Smaller nav logo on big screen */
+  .app-logo-nav{
+    width: 2.5rem;
+
+  }
+  #navbar-logo > h3 {
+    font-size: 1.5rem;
+  }
  
 
   /* view selector ajust size on smallscreen */
   .dropdown-views {
     width: 98.5%;
+    font-size: 1.5rem;
 
   }
-   /* NAV DROPDOWN USER NAME-- HIDE WHEN SCREEN IS SMALL */
-   /* .nav-account-name {
+}
+@media (max-width: 400px) {
+  /* very small hide username */
+    .nav-account-name {
     display: none;
-  } */
-  /* .drop-btn {
-    padding: 0.5rem 4rem;
-   
-  } */
-
-
+  }
+  .dropdown {
+    /* max-width: 1rem; */
+  }
+  .new-task-heading {
+    text-align: center;
+  }
+  .dropdown-items > a {    
+    font-size: 0.85rem;    
+  }
 }
 @media (min-width: 766px) {
-  /* .deadline-date, .create-button {
-    width: 60%;
-  } */
-  .create-button {
+ .create-button {
     margin: 0 auto;
   }
 /* width of create task when big screen */
@@ -642,10 +650,7 @@ a:visited {
   .image-container {
     margin: 0 0 1rem 0;
   }
-  nav {
-    
-    padding: 0 3.5rem 1rem;
-    
+  nav {    
+    padding: 0 3.5rem 1rem;    
   }
-
 }
