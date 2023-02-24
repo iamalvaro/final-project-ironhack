@@ -226,6 +226,12 @@ Esta web application esta construida con el framework de JavaScript Vue.js en su
 - [x] Add animated inputs to sign up
 - [x] Add show password to sign up
 
+#### Day Fourteen
+
+###### Thursday 23, Febrero 2023
+
+- [x] Present proyect to class
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Acerca de mi -->
@@ -236,7 +242,7 @@ Alvaro Fernandez - [LinkedIn](https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1
 
 Project Link: [Repositorio de GitHub](https://github.com/iamalvaro/final-project-ironhack)
 
-Presentation Link: [GoogleSlides](https://docs.google.com/presentation/d/19BEvSum0caDO4QKsYZPqLwTD6rLWvkk8RzWKGqYQIxs/edit?usp=sharing)
+Presentation Link: [GoogleSlides](https://docs.google.com/presentation/d/1RiIAL31wpknrNFQryonuhTeVf7pmxtP6XHhytN96oZc/edit?usp=sharing)
 
 Actualmente soy un estudiantes de desarrollo web Frontend en IronHack Barcelona. Antes de empezar este bootcamp habia estudiado a través de Udemy y freeCodeCamp desarrollo web durante medio año.
 
