@@ -230,6 +230,7 @@ Esta web application esta construida con el framework de JavaScript Vue.js en su
 
 ###### Thursday 23, Febrero 2023
 
+- [x] Added start date to tasks
 - [x] Present proyect to class
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

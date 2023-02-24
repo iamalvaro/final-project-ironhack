@@ -307,10 +307,13 @@ a:visited {
 .task-description {
   margin: 1em 0 1em 1rem;
   text-align: left;  
-
 }
 .short-text {
   text-align: center;
+}
+.task-date {
+  font-size: 1.1rem;
+  color: var(--colorGreen)
 }
 
 .task-container input {
@@ -323,7 +326,7 @@ a:visited {
   width: 80%;
 }
 .action-icon {
- margin: 2rem auto;
+ margin: 1.5rem auto;
  cursor: pointer;
 }
 .check:hover, .edit:hover, .delete:hover {
